@@ -1,0 +1,19 @@
+@use '../utils/vars' as v;
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: v.$font-primary;
+    font-weight: v.$font-regular;
+}
+
+html {
+    text-size-adjust: 100%;
+}
+
+body{
+    width: 100%;
+    background: v.$bg-img no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}

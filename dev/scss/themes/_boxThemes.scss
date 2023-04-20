@@ -1,0 +1,25 @@
+@use '../utils/vars' as v;
+
+.box-title{
+    background-color: v.$clr-gray;
+    color: v.$clr-white;
+    margin: 0;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+.box-orange{
+    background-color: v.$clr-orange;
+    margin: 0;
+    padding: 4rem 2rem 4rem 2rem;
+}
+
+.box-footer-orange{
+    background-color: v.$clr-orange;
+}
+
+.box-gray{
+    background-color: v.$clr-gray;
+    margin: 0;
+    padding: 4rem 2rem 4rem 2rem;
+    border-radius: 1em 1em 1em 1em;
+}

@@ -1,0 +1,26 @@
+@use '../utils/vars' as v;
+
+.final-button{
+    text-align: right;
+    padding-top: .5em;
+}
+
+.btn-info{
+    display: inline-block;
+    border-radius: 0.5rem  0.5rem  0.5rem  0.5rem;
+    border-style: solid;
+    padding: 0.69rem;
+    text-decoration: none;
+    transition: 0.5s;
+    color: v.$clr-clear;
+    background-color: v.$clr-orange;
+    
+    border-radius: 0.9rem;
+    border: solid v.$clr-black 0.25rem !important;
+    transition: 0.3s ease all;
+    &:hover{
+        background-color: v.$clr-black;
+        color: v.$clr-orange;
+        border: solid v.$clr-white 0.25rem !important;
+    }
+}
