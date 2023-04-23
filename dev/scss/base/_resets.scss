@@ -12,8 +12,16 @@ html {
 }
 
 body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
     width: 100%;
     background: v.$bg-img no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+
+main{
+    flex: 1 0 auto;
 }
