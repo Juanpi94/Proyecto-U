@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign-up</title>
+    <link rel="stylesheet" href="/dist/css/main.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a href="/dist/index.html"><img src="/dist/imgs/logo.svg" class="logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav m-1">
+                        <li class="nav-item m-3">
+                            <a aria-current="page" href="/dist/index.html">Inicio</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-------------------------------------------------------------------------------------------------->
+
+    <section>
+        <div class="d-flex align-items-center justify-content-center mt-5">
+            <div class="box-login content content-login justify-content-evenly align-items-center">
+
+                <form method="post" action="sing_up.html">
+                    <div class="">
+                        <div class="">
+                            <div class="mb-3">
+                                <label class="me-3" for="name">Ingrese su nombre</label>
+                                <input type="text" id="name" required>
+                               
+                            </div>
+                            <div class="mb-3">
+                                <label class="me-3" for="email">Ingrese su correo</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="mb-3 d-flex">
+                                <label class="me-3" for="password" >Ingrese su contraseña</label>
+                                <input type="password" id="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="me-3" for="repeat-password" >Repita su contraseña</label>
+                                <input type="password" id="repeat-password" required>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-info" type="submit">Registrarse</button>
+                    <p>¿Ya tienes cuenta? <a href="/dev/scss/pages/login.html">ingresa aquí</a></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-------------------------------------------------------------------------------------------------->
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>
