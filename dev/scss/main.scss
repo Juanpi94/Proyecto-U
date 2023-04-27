@@ -1,20 +1,21 @@
-//Base
-@use 'base/resets';
-@use 'base/base';
-
 //Utils
 @use 'utils/vars';
 
-//Vendor
-@use 'vendor/bootstrap/bootstrap.scss';
-
-//Themes
-@use 'themes/boxThemes';
+//Base
+@use 'base/base';
+@use 'base/resets';
 
 //Layout
 @use 'layout/nav';
 @use 'layout/login';
+@use 'layout/layout';
 @use 'layout/singUp';
+
+//Themes
+@use 'themes/boxThemes';
 
 //Components
 @use 'components/buttons';
+
+//Vendor
+@use 'vendor/bootstrap/bootstrap.scss';

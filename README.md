@@ -18,3 +18,7 @@ Tercer-commit{
 Cuarto-commit{
     Se arreglaron algunos problemas de responsividad y aun quedaron errores del footer por resolver
 }
+
+Quinto-commit{
+    Se arreglaron algunos problemas de responsividad y errores del footer aunque algunos por resolver
+}
