@@ -11,5 +11,10 @@ Segundo-commit{
 }
 
 Tercer-commit{
-    Se agregaron los links de comunicacion entre paginas como registro/login/index para sus debidos procesos, ademas de darle forma a la seccion de regitro
+    Se agregaron los links de comunicacion entre paginas como registro/login/index para sus debidos procesos,
+    ademas de darle forma a la seccion de regitro
+}
+
+Cuarto-commit{
+    Se arreglaron algunos problemas de responsividad y aun quedaron errores del footer por resolver
 }

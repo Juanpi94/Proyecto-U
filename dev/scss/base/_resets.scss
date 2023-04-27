@@ -11,17 +11,17 @@ html {
     text-size-adjust: 100%;
 }
 
-body{
-    display: flex;
+body{   
     flex-direction: column;
     min-height: 100vh;
-    
     width: 100%;
-    background-image: v.$bg-img no-repeat;
-    background-attachment: fixed;
+    background-image: url(/dist/imgs/fondo.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 main{
     flex: 1 0 auto;
 }
+
