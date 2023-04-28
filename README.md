@@ -22,3 +22,7 @@ Cuarto-commit{
 Quinto-commit{
     Se arreglaron algunos problemas de responsividad y errores del footer aunque algunos por resolver
 }
+
+Sexto-commit{
+    la responsividad de las paginas registrar y acceder están al 80% de su responsividad
+}
