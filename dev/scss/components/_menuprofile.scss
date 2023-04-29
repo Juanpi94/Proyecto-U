@@ -1,0 +1,39 @@
+@use "../utils/vars" as v;
+
+.menu-area {
+    border: solid 4px v.$clr-black !important;
+    background-color: v.$clr-orange !important;
+    ul {
+        display: inline;
+        flex-direction: row;
+
+        li {
+            list-style-type: none;
+            a {
+                display: block;
+                font-size: 1rem;
+                color: v.$clr-black;
+                content: 0 0 0 4rem;
+                text-decoration: none;
+                font-weight: v.$font-bold;
+                &:hover {
+                    border-radius: 3rem;
+                    background-color: v.$clr-black;
+                    color: v.$clr-white;
+                    i {
+                        color: v.$clr-white;
+                        border: solid 1px v.$clr-white;
+                    }
+                }
+            }
+
+            i {
+                margin: 0.5rem;
+                padding: 0.5rem;
+                border-radius: 100%;
+                color: v.$clr-gray-dark;
+                border: solid 1px v.$clr-black;
+            }
+        }
+    }
+}

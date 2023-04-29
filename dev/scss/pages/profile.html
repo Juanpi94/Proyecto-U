@@ -9,11 +9,7 @@
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/48ce04dd4f.js" crossorigin="anonymous"></script>
-    <!--Bootstrap JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-
+    
     <!--Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
@@ -42,9 +38,9 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav m-1">
+                            <ul class="ul-nav navbar-nav m-1">
                                 <li class="nav-item m-3">
-                                    <a aria-current="page" href="index.html">Inicio</a>
+                                    <a aria-current="page" href="/dist/index.html">Inicio</a>
                                 </li>
                                 <li class="nav-item m-3">
                                     <a href="registro-receta.html">Añadir receta</a>
@@ -53,7 +49,23 @@
                         </div>
                     </div>
                 </nav>
-                <a class="btn-style" href="../dev/scss/pages/login.html">Iniciar</a>
+                <!-- Boton de perfil -->
+                <div class="dropdown">
+                    <button type="button" class="btn-style dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false" data-bs-auto-close="outside">
+                        <i class="fa-solid fa-user ms-1 me-1"></i>Perfil
+                    </button>
+                    <form class="w-25 dropdown-menu p-2 menu-area">
+                        <ul>
+                            <li><a href="/dev/scss/pages/profile.html"><i class="fa-solid fa-user"></i>Perfil</a></li>
+                            <li><a href="#"><i class="fa-solid fa-gear"></i>Config</a></li>
+                            <li><a href="#"><i class="fa-solid fa-circle-info"></i>Ayuda</a></li>
+                            <li><a href="#"><i class="fa-solid fa-bug"></i>Reportar</a></li>
+                            <li><a href="/dist/index.html"><i class="fa-solid fa-right-from-bracket"></i></i>Salir</a></li>
+                        </ul>
+                    </form>
+                </div>
+                <!-- Boton de perfil -->
             </nav>
         </section>
 

@@ -48,3 +48,8 @@ Octavo-commit{
     Se agrego el area de perfil de usuario con su respectiva responsividad, ademas de agregar dos cards en cada area para 
     generar la visualizacion de estas a futuro.
 }
+
+Noveno-commit{
+    Se ha completado al 90% la primera parte del proyecto, se agregaron botones como el de perfil, ademas de mejorar
+    la apariencia del index.html, faltando mostrar los datos de la receta la ser consultada
+}
