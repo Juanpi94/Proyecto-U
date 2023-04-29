@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign-up</title>
+    <title>Sign-up</title>
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/48ce04dd4f.js" crossorigin="anonymous"></script>
@@ -27,8 +27,6 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="/dist/css/main.css">
-
-
 </head>
 
 <body>
@@ -50,7 +48,7 @@
                     </div>
                 </div>
             </nav>
-            <a class="btn-info" href="login.html">Volver</a>
+            <a class="btn-style" href="login.html">Volver</a>
         </nav>
     </header>
 
@@ -72,7 +70,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label fs-4">Contraseña</label>
-                                <input type="password" class="form-control text-center" id="password" required>
+                                <input type="password" class="form-control text-center" id="password" maxlength="32" minlength="8" required>
                             </div>
                         </div>
                         <div class="w-50 m-4 d-inline">
@@ -83,13 +81,13 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label fs-4">Repita la Contraseña</label>
-                                <input type="password" class="form-control text-center" id="password" required>
+                                <input type="password" class="form-control text-center" id="password" maxlength="32" minlength="8" required>
                             </div>
                         </div>
                     </div>
                     <div class="text-center w-100">
                         <h5>¿Ya tienes cuenta? <a href="/dev/scss/pages/login.html">ingresa aquí</a></h5>
-                        <button class="btn-info" type="submit">Registrarse</button>
+                        <button class="btn-style" type="submit">Registrarse</button>
                     </div>
                 </form>
             </div>
@@ -97,7 +95,6 @@
     </section>
 
     <!-------------------------------------------------------------------------------------------------->
-    <main></main>
 
     <footer>
         <div class="d-flex justify-content-center">

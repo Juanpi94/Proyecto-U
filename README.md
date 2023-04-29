@@ -43,3 +43,8 @@ Septimo-commit{
     La responsividad de regitrar, inicar o login, recuperar contraseña quedaron al 100% responsivas, ademas de montar la pagina
     de recuperar contraseña y su llamado a esta en su link especifico
 }
+
+Octavo-commit{
+    Se agrego el area de perfil de usuario con su respectiva responsividad, ademas de agregar dos cards en cada area para 
+    generar la visualizacion de estas a futuro.
+}
