@@ -53,3 +53,9 @@ Noveno-commit{
     Se ha completado al 90% la primera parte del proyecto, se agregaron botones como el de perfil, ademas de mejorar
     la apariencia del index.html, faltando mostrar los datos de la receta la ser consultada
 }
+
+Decimo-commit{
+    Se agregó el modal cuando le da al boton de ver receta de los cards para mostrar la información general de dicha receta
+    ademas de algunas funciones de Vue.js que no viene para este primera entrega
+    Se separaron el footer y el nav para que se muestren en archivos distintos por si necesitan modificacion
+}
