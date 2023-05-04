@@ -4,7 +4,7 @@ app.component('nav-area', {
     `
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a href="index.html"><img src="imgs/logo.svg" class="logo"></a>
+            <a href="index.html"><img src="/dist/imgs/logo.svg" class="logo"></a>
             <button class="navbar-toggler" 
                 type="button" 
                 data-bs-toggle="collapse"

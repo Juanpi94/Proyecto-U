@@ -27,6 +27,11 @@ body {
           flex-direction: column;
 }
 
+.img-content {
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -271,7 +276,7 @@ footer {
 }
 
 .box-orange {
-  background-color: hsl(32deg, 80%, 48%);
+  background-color: hsl(32deg, 80%, 48%) !important;
   margin: 0;
   padding: 4rem 2rem 4rem 2rem;
 }
@@ -283,10 +288,9 @@ footer {
 }
 
 .box-gray {
-  background-color: hsla(0deg, 11%, 18%, 0.6);
+  background-color: hsla(0deg, 11%, 18%, 0.6) !important;
   margin: 0;
   padding: 4rem 2rem 4rem 2rem;
-  border-radius: 1em 1em 1em 1em;
 }
 
 .box-img-login {

@@ -22,3 +22,8 @@ body{
     display: flex;
     flex-direction: column;
 }
+
+.img-content{
+    background-size: cover;
+    background-attachment: fixed;
+}

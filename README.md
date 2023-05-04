@@ -59,3 +59,8 @@ Decimo-commit{
     ademas de algunas funciones de Vue.js que no viene para este primera entrega
     Se separaron el footer y el nav para que se muestren en archivos distintos por si necesitan modificacion
 }
+
+Onceavo-commit{
+    Se corrigieron errores de css y responsividad, ademas de agregar un modal que despliega toda la infomacion de la receta
+    deseada
+}
