@@ -7,14 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
 
-    <!--FontAwesome-->
-    <script src="https://kit.fontawesome.com/48ce04dd4f.js" crossorigin="anonymous"></script>
-    
-    <!--Bootstrap JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-
     <!-- Fuentes Alegreya Sans para titulos, subtitulos y botones, Roboto Regular para textos largos-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,328 +18,192 @@
 </head>
 
 <body>
-    <header>
-        <section>
+    <section id="app">
+        <header>
+            <!-- Barra de navegacion -->
             <nav>
-                <nav class="navbar navbar-expand-lg">
-                    <div class="content align-items-center">
-                        <a href="index.html"><img src="/dist/imgs/logo.svg" class="logo p-1"></a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="ul-nav navbar-nav m-1">
-                                <li class="nav-item m-3">
-                                    <a aria-current="page" href="/dist/index.html">Inicio</a>
-                                </li>
-                                <li class="nav-item m-3">
-                                    <a href="registro-receta.html">Añadir receta</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+                <nav-area></nav-area>
                 <!-- Boton de perfil -->
-                <div class="dropdown">
-                    <button type="button" class="btn-style dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="false" data-bs-auto-close="outside">
-                        <i class="fa-solid fa-user ms-1 me-1"></i>Perfil
-                    </button>
-                    <form class="w-25 dropdown-menu p-2 menu-area">
-                        <ul>
-                            <li><a href="/dev/scss/pages/profile.html"><i class="fa-solid fa-user"></i>Perfil</a></li>
-                            <li><a href="#"><i class="fa-solid fa-gear"></i>Config</a></li>
-                            <li><a href="#"><i class="fa-solid fa-circle-info"></i>Ayuda</a></li>
-                            <li><a href="#"><i class="fa-solid fa-bug"></i>Reportar</a></li>
-                            <li><a href="/dist/index.html"><i class="fa-solid fa-right-from-bracket"></i></i>Salir</a></li>
-                        </ul>
-                    </form>
-                </div>
+                <profile-button></profile-button>
                 <!-- Boton de perfil -->
             </nav>
+            <!-- Fin de Barra de navegacion -->
+
+            <!-- sección imagen/texto  //Modificar esta area --> 
+            <section class="w-75 mt-5 p-5 bg-black bg-opacity-50 rounded-4 container" id="about">
+                <div class="row justify-content-around ">
+                    <div class="col bg-black bg-opacity-50 rounded-3 m-3">
+                        <div class="m-5 text-center p-2 bg-light rounded-3">
+                            <div class="bg-black bg-opacity-50 rounded-4 p-5 text-center">
+                                <label for="exampleFormControlFile1">Subir imagen</label>
+                            </div>
+                            <div class="p-3">
+                                <input type="file" class="form-control p-0" id="exampleFormControlFile1">
+                            </div>
+                            <div>
+                                <input class="btn-br w-50" type="submit" value="Guardar" id="guardar">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col bg-black bg-opacity-50 rounded-3">
+                        <div class="container">
+                            <div class="about-text">
+                                <div class="container text-light mt-4">
+                                    <div class="text-center">
+                                        <h2 class="text-light">Datos del Usuario</h2>
+                                        <hr />
+                                    </div>
+                                    <div class="text-light">
+                                        <h3>Nombre:</h3>
+                                        <p>espacio donde se loggea el nombre de la base</p>
+                                        <h3>Correo:</h3>
+                                        <p>espacio donde se loggea el correo de la base</p>
+                                        <h3>Cantidad de recetas: </h3>
+                                        <p>un monton</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- sección imagen/texto   -->
+        </header>
+
+        <!----\ Recetas coleccionadas \---->
+        <section>
+            <!--Filtros-->
+            <section>
+                <div class="box-centered">
+                    <div class="d-inline-block box-style content mt-4 w-75">
+                        <!-- Comienso de los filtros -->
+                        <filters></filters>
+                        <!-- Fin de los filtros -->
+                    </div>
+                </div>
+            </section>
+            <!--Fin de filtros-->
+
+            <section>
+                <div class="d-flex align-content-center justify-content-center mb-4 mt-1">
+                    <div class="bg-black rounded-4 bg-opacity-75 w-75 p-3">
+                        <div class="text-center p-2">
+                            <div class="d-inline-block border-5 border-bottom border-top mb-2">
+                                <h2 class="text-white m-0 p-1">Tus <span class="text-danger fw-bold">recetas</span>
+                                    coleccionadas</h2>
+                            </div>
+                        </div>
+                        <div
+                            class="d-flex content p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
+                            <div class="container">
+                                <div class="d-flex align-content-center justify-content-center">
+                                    <div class="d-flex p-2">
+                                        <!-- Inicio de cards -->
+                                        <div v-for="i in 4">
+                                            <recipe-card v-on:recipedetails="onClickRecipeDetails"></recipe-card>
+                                        </div>
+                                        <!-- Fin de cards -->
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <recipe-details></recipe-details>
+                                    <!-- Fin modal -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-2 d-flex justify-content-end">
+                            <a class="btn-style" type="submit" href="/dev/scss/pages/all_recipes.html">Ver todas las
+                                recetas</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
+        <!----\ Recetas coleccionadas \---->
 
-        <!-- sección imagen/texto   -->
-        <section class="w-75 mt-5 p-5 bg-black bg-opacity-50 rounded-4 container" id="about">
-            <div class="row justify-content-around ">
-                <div class="col bg-black bg-opacity-50 rounded-3 m-3">
-                    <div class="m-5 text-center p-2 bg-light rounded-3">
-                        <div class="bg-black bg-opacity-50 rounded-4 p-5 text-center">
-                            <label for="exampleFormControlFile1">Subir imagen</label>
-                        </div>
-                        <div class="p-3">
-                            <input type="file" class="form-control p-0" id="exampleFormControlFile1">
-                        </div>
-                        <div>
-                            <input class="btn-br w-50" type="submit" value="Guardar" id="guardar">
+        <!----/ Recetas del usuario /---->
+        <section>
+            <section>
+                <!--Filtros-->
+                <section>
+                    <div class="d-flex align-content-center justify-content-center">
+                        <div class="d-inline-block box-style content mt-4 w-75">
+                            <!-- Comienso de los filtros -->
+                            <filters></filters>
+                            <!-- Fin de los filtros -->
                         </div>
                     </div>
-                </div>
+                </section>
+                <!--Fin de filtros-->
 
-                <div class="col bg-black bg-opacity-50 rounded-3">
-                    <div class="container">
-                        <div class="about-text">
-                            <div class="container text-light mt-4">
-                                <div class="text-center">
-                                    <h2 class="text-light">Datos del Usuario</h2>
-                                    <hr />
+                <section>
+                    <div class="d-flex align-content-center justify-content-center mb-4 mt-1">
+                        <div class="bg-black rounded-4 bg-opacity-75 w-75 p-3">
+                            <div class="text-center p-2">
+                                <div class="d-inline-block border-5 border-bottom border-top mb-2">
+                                    <h2 class="text-white m-0 p-1">Todas <span class="text-danger fw-bold">tus</span>
+                                        recetas</h2>
                                 </div>
-                                <div class="text-light">
-                                    <h3>Nombre:</h3>
-                                    <p>espacio donde se loggea el nombre de la base</p>
-                                    <h3>Correo:</h3>
-                                    <p>espacio donde se loggea el correo de la base</p>
-                                    <h3>Cantidad de recetas: </h3>
-                                    <p>un monton</p>
+                            </div>
+                            <div
+                                class="d-flex content p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
+                                <div class="container">
+                                    <div class="d-flex align-content-center justify-content-center">
+                                        <div class="d-flex p-2">
+                                            <!-- Inicio de cards -->
+                                            <div v-for="i in 4">
+                                                <recipe-card v-on:recipedetails="onClickRecipeDetails"></recipe-card>
+                                            </div>
+                                            <!-- Fin de cards -->
+                                        </div>
+
+                                        <!-- Modal -->
+                                        <recipe-details></recipe-details>
+                                        <!-- Fin modal -->
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="m-2 d-flex justify-content-end">
+                                <a class="btn-style" type="submit" href="/dev/scss/pages/all_recipes.html">Ver todas las
+                                    recetas</a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </section>
+            </section>
         </section>
-        <!-- sección imagen/texto   -->
-    </header>
+        <!----/ Recetas del usuario /---->
 
-    <!----\ Recetas coleccionadas \---->
-
-    <!--( Filtros )-->
-    <section>
-        <div class="d-flex align-content-center justify-content-center">
-            <div class="d-inline-block box-style content mt-4 w-75">
-                <!-- Comienso de los filtros -->
-                <div class="navbar navbar-expand-lg">
-                    <div class="container-fluid text-black">
-                        <h5 class="d-inline me-2">Filtros:</h5>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#filterLike" aria-controls="filterLike" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="content">
-                            <div class="collapse navbar-collapse" id="filterLike">
-                                <ul class="d-flex justify-content-center navbar-nav">
-                                    <div class="d-flex w-100 justify-content-center">
-                                        <div>
-                                            <button class="btn-style m-2">All</button>
-                                        </div>
-                                        <div>
-                                            <button class="btn-style m-2">Breakfast</button>
-                                        </div>
-                                        <div>
-                                            <button class="btn-style m-2">Fastfood</button>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex w-100 justify-content-center">
-                                        <div>
-                                            <button class="btn-style m-2">Lunch</button>
-                                        </div>
-                                        <div>
-                                            <button class="btn-style m-2">Desserts</button>
-                                        </div>
-                                        <div>
-                                            <button class="btn-style m-2">Drinks</button>
-                                        </div>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Fin de los filtros -->
-            </div>
-        </div>
+        <footer-page></footer-page>
     </section>
-    <!--( Fin de filtros )-->
 
-    <!--[ Area de recetas ]-->
-    <section>
-        <div class="d-flex align-content-center justify-content-center mt-1">
-            <div class="bg-black bg-opacity-50 rounded-4 p-4 w-75">
-                <div class="text-center p-2">
-                    <h2 class="text-white"><span class="text-danger fw-bold">R</span>ecetas que te gustan</h2>
-                </div>
-                <divv class="d-flex content p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
-                    <div class="container">
-                        <div class="d-flex align-content-center justify-content-center">
-                            <div class="d-flex p-2">
-                                <!-- Inicio de cards -->
-                                <div class="card m-2 w-50 h-100">
-                                    <div class="card-header">
-                                        <img src="/dist/imgs/fotos_recetas/2.jpg" class="card-img-top img-fluid"
-                                            alt="recipe">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make
-                                            up the bulk of the card's content.
-                                        </p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                                <div class="card m-2 w-50 h-100">
-                                    <div class="card-header">
-                                        <img src="/dist/imgs/fotos_recetas/2.jpg" class="card-img-top img-fluid"
-                                            alt="recipe">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make
-                                            up the bulk of the card's content.
-                                        </p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between">
-                                        <div class="d-flex">
-                                            <a href="#"><i class="fa-solid fa-heart fs-1 text-danger"></i></a>
-                                        </div>
-                                        <div class="">
-                                            <a href="#" class="btn-style text-center">ver receta</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Fin de cards -->
-                            </div>
-                        </div>
-                    </div>
-                </divv>
-            </div>
-        </div>
-    </section>
-    <!--[ Fin area de recetas ]-->
+    <!--Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+        </script>
 
-    <!----\ Recetas coleccionadas \---->
+    <!--FontAwesome-->
+    <script src="https://kit.fontawesome.com/48ce04dd4f.js" crossorigin="anonymous"></script>
 
-    <!----/ Recetas del usuario /---->
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <!--( Filtros )-->
-    <section>
-        <div class="d-flex align-content-center justify-content-center">
-            <div class="d-inline-block box-style content mt-4 w-75">
-                <!-- Comienso de los filtros -->
-                <div class="navbar navbar-expand-lg">
-                    <div class="container-fluid text-black">
-                        <h5 class="d-inline me-2">Filtros:</h5>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#filterOwnRecipe" aria-controls="filterOwnRecipe" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="content">
-                            <div class="collapse navbar-collapse" id="filterOwnRecipe">
-                                <ul class="d-flex justify-content-center navbar-nav">
-                                    <div class="d-flex justify-content-center">
-                                        <div>
-                                            <button class="btn-style m-2">All</button>
-                                        </div>
-                                        <div>
-                                            <button class="btn-style m-2">Breakfast</button>
-                                        </div>
-                                        <div>
-                                            <button class="btn-style m-2">Fastfood</button>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-center">
-                                        <div>
-                                            <button class="btn-style m-2">Lunch</button>
-                                        </div>
-                                        <div>
-                                            <button class="btn-style m-2">Desserts</button>
-                                        </div>
-                                        <div>
-                                            <button class="btn-style m-2">Drinks</button>
-                                        </div>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Fin de los filtros -->
-            </div>
-        </div>
-    </section>
-    <!--( Fin de filtros )-->
+    <!-- Main.js -->
+    <script src="/dist/js/main.js"></script>
 
-    <!--[ Area de recetas ]-->
-    <section>
-        <div class="d-flex align-content-center justify-content-center mb-4 mt-1">
-            <div class="bg-black rounded-4 bg-opacity-75 w-75 p-3">
-                <div class="text-center p-2">
-                    <h2 class="text-white"><span class="text-danger fw-bold">R</span>ecetas que agregaste</h2>
-                </div>
-                <div
-                    class="d-flex content p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
-                    <div class="container">
-                        <div class="d-flex align-content-center justify-content-center">
-                            <div class="d-flex p-2">
-                                <!-- Inicio de cards -->
-                                <div class="card m-2 w-50 h-100">
-                                    <div class="card-header">
-                                        <img src="/dist/imgs/fotos_recetas/2.jpg" class="card-img-top img-fluid"
-                                            alt="recipe">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make
-                                            up the bulk of the card's content.
-                                        </p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                                <div class="card m-2 w-50 h-100">
-                                    <div class="card-header">
-                                        <img src="/dist/imgs/fotos_recetas/2.jpg" class="card-img-top img-fluid"
-                                            alt="recipe">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make
-                                            up the bulk of the card's content.
-                                        </p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                </div>
-                                <!-- Fin de cards -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--[ Fin area de recetas ]-->
+    <!-- Components -->
+    <script src="/dist/js/components/Nav.js"></script>
+    <script src="/dist/js/components/Footer.js"></script>
+    <script src="/dist/js/components/filters.js"></script>
+    <script src="/dist/js/components/RecipeCard.js"></script>
+    <script src="/dist/js/components/AccessButton.js"></script>
+    <script src="/dist/js/components/RecipeDetails.js"></script>
+    <script src="/dist/js/components/ProfileBuntton.js"></script>
 
-    <!----/ Recetas del usuario /---->
-
-    <footer>
-        <div class="d-flex justify-content-center">
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-facebook-f fs-3"></i></a>
-            </div>
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-youtube fs-3"></i></a>
-            </div class="footer-icon m-2">
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-instagram fs-3"> </i></a>
-            </div>
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-twitter fs-3"> </i></a>
-            </div>
-        </div>
-        <h5>©2022-2023 Copyright: <a href="https://github.com/Juanpi94/Proyecto-U.git">UCR Estudiantes</a></h5>
-    </footer>
+    <script>
+        const mountedApp = app.mount("#app");
+    </script>
 </body>
 
 </html>

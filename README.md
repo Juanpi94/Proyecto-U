@@ -64,3 +64,8 @@ Onceavo-commit{
     Se corrigieron errores de css y responsividad, ademas de agregar un modal que despliega toda la infomacion de la receta
     deseada
 }
+
+Doceavo-commit{
+    Se eliminaron documentos y funciones que no estaban en uso, se modificaron algunos atributos de los archivos SCSS
+    Ademas de agregar los filtros a un archivo js
+}

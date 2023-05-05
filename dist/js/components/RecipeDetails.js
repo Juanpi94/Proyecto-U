@@ -14,11 +14,11 @@ app.component('recipe-details', {
                         <section>
                             <div class="content w-100 justify-content-around">
                                 <div
-                                    class="d-flex m-2 p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
+                                    class="box-centered m-2 p-2 bg-black rounded-4 bg-opacity-50">
                                     <img class="p-2 rounded-4 img-fluid" src="/dist/imgs/4.jpg" alt="">
                                 </div>
                                 <div
-                                    class="d-flex m-2 p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
+                                    class="box-centered m-2 p-2 bg-black rounded-4 bg-opacity-50">
                                     <div class="p-2 text-white w-100">
                                         <h3>Nombre de la receta:</h3>
                                         <p>Olla de carne</p>

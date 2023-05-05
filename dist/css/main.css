@@ -27,194 +27,6 @@ body {
           flex-direction: column;
 }
 
-.img-content {
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Alegreya Sans";
-  font-weight: 400;
-}
-
-.logo {
-  width: 9rem;
-}
-
-.hero {
-  width: 100%;
-  background: hsla(34deg, 79%, 81%, 0.404);
-  color: hsl(5deg, 15%, 70%);
-}
-
-.user-pic {
-  width: 50px;
-  border-radius: 140%;
-  cursor: pointer;
-  margin-left: 30px;
-}
-
-.sub-menu-wrap {
-  position: absolute;
-  top: 100%;
-  right: 10%;
-  width: 320px;
-  max-height: 0px;
-  overflow: hidden;
-  -webkit-transition: max-height 0.5s;
-  transition: max-height 0.5s;
-}
-
-.sub-menu-wrap.open-menu {
-  max-height: 400px;
-}
-
-.sub-menu {
-  background: hsl(0deg, 4%, 10%);
-  padding: 10px;
-  margin: 10px;
-  width: auto;
-  height: auto;
-}
-
-.user-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: hsl(32deg, 80%, 48%);
-}
-
-.user-info h3 {
-  font-weight: 500;
-}
-
-.user-info img {
-  width: 60px;
-  border-radius: 50%;
-  margin-right: 15px;
-}
-
-.sub-menu hr {
-  height: 1px;
-  border: 0;
-  width: 100%;
-  background: hsl(0deg, 0%, 100%);
-  margin: 15px 0 10px;
-}
-
-.i-icon {
-  font-size: 1.5rem;
-  text-decoration: none;
-  color: hsl(0deg, 4%, 10%);
-  background: hsl(0deg, 0%, 100%);
-  padding: 5%;
-  border-radius: 50%;
-}
-
-.i-arrow {
-  margin-bottom: 0em;
-}
-
-.submenu-link {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-decoration: none;
-  color: hsl(0deg, 0%, 100%);
-  margin: 12px 0;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-}
-
-.submenu-link p {
-  width: 100%;
-  text-decoration: none;
-  -ms-flex-line-pack: end;
-      align-content: flex-end;
-  text-align: left;
-  margin: 0;
-  margin-left: 1rem;
-  font-weight: 800;
-}
-
-.submenu-link:hover {
-  -webkit-transform: translateX(5px);
-          transform: translateX(5px);
-  background: hsl(0deg, 0%, 100%);
-  border-radius: 4rem;
-  color: hsl(32deg, 80%, 48%);
-  font-size: 1.1rem;
-  font-weight: 800;
-}
-
-.submenu-link:hover .i-icon {
-  background: hsl(32deg, 80%, 48%);
-}
-
-.login-title {
-  font-family: "Alegreya Sans";
-}
-
-.content {
-  margin: 0;
-  max-width: 1200px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-@media only screen and (max-width: 600px) {
-  .content {
-    display: block;
-  }
-}
-.footer-icon {
-  border: solid 4px hsl(0deg, 4%, 10%);
-  border-radius: 2rem;
-  height: 3.5rem;
-  width: 3.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.footer-icon a i {
-  color: hsl(0deg, 0%, 100%);
-}
-.footer-icon:hover {
-  border-color: hsl(0deg, 0%, 100%);
-  background-color: hsl(0deg, 4%, 10%);
-  -webkit-transition: 0.5;
-  transition: 0.5;
-}
-.footer-icon:hover a {
-  -webkit-transition: 0.5;
-  transition: 0.5;
-  background-color: transparent;
-}
-.footer-icon:hover a i {
-  -webkit-transition: 0.5;
-  transition: 0.5;
-  color: hsl(32deg, 80%, 48%);
-  background-color: transparent;
-}
-
 nav {
   background: hsl(32deg, 80%, 48%);
   width: 100%;
@@ -268,6 +80,67 @@ footer {
   text-align: center;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Alegreya Sans";
+  font-weight: 400;
+}
+
+.footer-icon {
+  border: solid 4px hsl(0deg, 4%, 10%);
+  border-radius: 2rem;
+  height: 3.5rem;
+  width: 3.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer-icon a i {
+  color: hsl(0deg, 0%, 100%);
+}
+.footer-icon:hover {
+  border-color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0deg, 4%, 10%);
+  -webkit-transition: 0.5;
+  transition: 0.5;
+}
+.footer-icon:hover a {
+  -webkit-transition: 0.5;
+  transition: 0.5;
+  background-color: transparent;
+}
+.footer-icon:hover a i {
+  -webkit-transition: 0.5;
+  transition: 0.5;
+  color: hsl(32deg, 80%, 48%);
+  background-color: transparent;
+}
+
+.login-title {
+  font-family: "Alegreya Sans";
+}
+
+.content {
+  margin: 0;
+  max-width: 1200px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    display: block;
+  }
+}
 .box-title {
   background-color: hsla(0deg, 11%, 18%, 0.6);
   color: hsl(0deg, 0%, 100%);
@@ -282,32 +155,43 @@ footer {
 }
 
 .box-style {
-  padding: 1rem;
   background-color: hsla(32deg, 80%, 48%, 0.5);
+  padding: 1rem;
   border-radius: 1rem;
+}
+
+.box-centered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .box-gray {
   background-color: hsla(0deg, 11%, 18%, 0.6) !important;
   margin: 0;
-  padding: 4rem 2rem 4rem 2rem;
 }
 
 .box-img-login {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
           flex: 0 0 50%;
-  height: 180px;
-  width: 180px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1.3rem;
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
 .box-img-login img {
   width: 100%;
   height: 100%;
-}
-
-.final-button {
-  text-align: right;
-  padding-top: 0.5em;
 }
 
 .btn-style {

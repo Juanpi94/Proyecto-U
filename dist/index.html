@@ -10,9 +10,6 @@
     <!--Archivos Css-->
     <link rel="stylesheet" href="css/main.css">
 
-    <!--Swiper Css-->
-    <link rel="stylesheet" href="css/swiper-bundle.css">
-
     <!-- Fuentes Alegreya Sans para titulos, subtitulos y botones, Roboto Regular para textos largos-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,44 +87,7 @@
                     <div class="d-flex align-content-center justify-content-center">
                         <div class="d-inline-block box-style content mt-4 w-75">
                             <!-- Comienso de los filtros -->
-                            <div class="navbar navbar-expand-lg">
-                                <div class="container-fluid text-black">
-                                    <h5 class="d-inline me-2">Filtros:</h5>
-                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#filterLike" aria-controls="filterLike" aria-expanded="false"
-                                        aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon"></span>
-                                    </button>
-                                    <div class="content">
-                                        <div class="collapse navbar-collapse" id="filterLike">
-                                            <ul class="d-flex justify-content-center navbar-nav">
-                                                <div class="d-flex w-100 justify-content-center">
-                                                    <div>
-                                                        <button class="btn-style m-2">All</button>
-                                                    </div>
-                                                    <div>
-                                                        <button class="btn-style m-2">Breakfast</button>
-                                                    </div>
-                                                    <div>
-                                                        <button class="btn-style m-2">Fastfood</button>
-                                                    </div>
-                                                </div>
-                                                <div class="d-flex w-100 justify-content-center">
-                                                    <div>
-                                                        <button class="btn-style m-2">Lunch</button>
-                                                    </div>
-                                                    <div>
-                                                        <button class="btn-style m-2">Desserts</button>
-                                                    </div>
-                                                    <div>
-                                                        <button class="btn-style m-2">Drinks</button>
-                                                    </div>
-                                                </div>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <filters></filters>
                             <!-- Fin de los filtros -->
                         </div>
                     </div>
@@ -191,18 +151,15 @@
     <!-- Components -->
     <script src="js/components/Nav.js"></script>
     <script src="js/components/Footer.js"></script>
+    <script src="js/components/filters.js"></script>
     <script src="js/components/RecipeCard.js"></script>
     <script src="js/components/AccessButton.js"></script>
     <script src="js/components/RecipeDetails.js"></script>
     <script src="js/components/ProfileBuntton.js"></script>
 
-
     <script>
         const mountedApp = app.mount("#app");
     </script>
-
-    <script src="js/swipper/script.js"></script>
-    <script src="js/swipper/swiper-bundle.js"></script>
 </body>
 
 </html>

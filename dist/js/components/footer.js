@@ -3,7 +3,7 @@ app.component('footer-page', {
     /*html*/
     `
         <footer>
-            <div class="d-flex justify-content-center">
+            <div class="box-centered">
                 <div class="footer-icon m-2">
                     <a href="https://github.com/Juanpi94/Proyecto-U.git">
                         <i class="fab fa-facebook-f fs-3"></i></a>

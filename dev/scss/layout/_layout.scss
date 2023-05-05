@@ -1,48 +1,47 @@
 @use "../utils/vars" as v;
 
-nav {
-    background: v.$clr-orange;
-    width: 100%;
-    padding-left: 0.5rem;
-    padding-right: 1rem;
+.footer-icon {
+    border: solid 4px v.$clr-black;
+    border-radius: 2rem;
+    height: 3.5rem;
+    width: 3.5rem;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    position: relative;
-    .ul-nav {
-        width: 100%;
-        text-align: center;
-        li{
-            display: inline-block;
-            list-style: none;
-            margin: 10px 20px;
-            font-weight: v.$font-bold;
-            a {
-                display: inline-block;
-                padding: 0.69rem;
-                text-decoration: none;
-                color: v.$clr-clear;
-                background-color: v.$clr-orange;
-                border-radius: 0.9rem;
-                border: solid v.$clr-black 0.25rem;
-                transition: 0.3s ease all;
-                &:hover {
-                    background-color: v.$clr-black;
-                    color: v.$clr-orange;
-                    border: solid v.$clr-white 0.25rem;
-                }
+    a {
+        i {
+            color: v.$clr-white;
+        }
+    }
+    &:hover {
+        border-color: v.$clr-white;
+        background-color: v.$clr-black;
+        transition: 0.5;
+        a {
+            transition: 0.5;
+            background-color: transparent;
+            i {
+                transition: 0.5;
+                color: v.$clr-orange;
+                background-color: transparent;
             }
         }
     }
 }
 
-footer {
-    display: block;
-    background: v.$clr-orange;
-    padding-top: 1rem;
-    margin-top: auto;
-    display: table;
+.login-title {
+    font-family: v.$font-primary;
+}
+
+.content {
+    margin: 0;
+    max-width: 1200px;
     width: 100%;
-    height: 13vh;
-    text-align: center;
+    display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+    .content {
+        display: block;
+    }
 }

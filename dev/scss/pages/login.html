@@ -7,14 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 
-    <!--FontAwesome-->
-    <script src="https://kit.fontawesome.com/48ce04dd4f.js" crossorigin="anonymous"></script>
-
-    <!--Bootstrap JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-
     <!-- Fuentes Alegreya Sans para titulos, subtitulos y botones, Roboto Regular para textos largos-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,88 +18,83 @@
 </head>
 
 <body>
-    <header>
-        <nav class="pe-3 ps-2 navbar navbar-expand">
-            <div class="container-fluid">
-                <a href="/dist/index.html"><img src="/dist/imgs/logo.svg" class="logo"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="ul-nav navbar-nav m-1">
-                        <li class="nav-item m-3">
-                            <a aria-current="page" href="/dist/index.html">Inicio</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <section id="app">
+        <header>
+            <nav>
+                <nav-area></nav-area>
+            </nav>
+        </header>
 
-    <section>
-        <div class="d-flex align-items-center justify-content-center mt-5 mb-5">
-            <div class="box-style content justify-content-evenly align-items-center">
-                <div class="box-img-login h-100 w-100 justify-content-center p-3">
-                    <div class="text-center">
-                        <img class="text-center" src="/dist/imgs/logo.svg" alt="logo">
-                    </div>
-                    <div class="text-center">
-                        <h2 class="login-title mt-2">
-                            Tus recetas en un mismo sitio
-                        </h2>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center">
-                    <form>
-                        <div class="mb-3">
-                            <label for="user" class="form-label fs-4">Email / Usuario</label>
-                            <input type="email" class="form-control" id="user" aria-describedby="user" required>
+        <section>
+            <div class="box-centered mt-5 mb-5">
+                <div class="box-style content justify-content-evenly align-items-center">
+                    <div class="box-img-login">
+                        <img src="/dist/imgs/logo.svg" alt="logo">
+                        <div>
+                            <h2 class="login-title mt-2">
+                                Tus recetas en un mismo sitio
+                            </h2>
                         </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label fs-4">Contraseña</label>
-                            <input type="password" class="form-control" id="password" required>
-                        </div>
-                        <div class="container pb-3">
-                            <div class="row">
-                                <div class="col">
-                                    <h5><a class="text-dark" href="sing_up.html">Registrarse</a></h5>
-                                </div>
-                                <div class="col">
-                                    <h5><a class="text-dark" href="forgot_pass.html">¿Olvidó su contraseña?</a></h5>
+                    </div>
+                    
+                    <div class="box-centered">
+                        <form>
+                            <div class="mb-3">
+                                <label for="user" class="form-label fs-4">Email / Usuario</label>
+                                <input type="email" class="form-control" id="user" aria-describedby="user" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label fs-4">Contraseña</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <div class="container pb-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5><a class="text-dark" href="sing_up.html">Registrarse</a></h5>
+                                    </div>
+                                    <div class="col">
+                                        <h5><a class="text-dark" href="forgot_pass.html">¿Olvidó su contraseña?</a></h5>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="text-center w-100">
-                            <button type="submit" class="btn-style fw-bold fs-5">Acceder</button>
-                        </div>
-                    </form>
+                            <div class="text-center w-100">
+                                <button type="submit" class="btn-style fw-bold fs-5">Acceder</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <footer-page></footer-page>
     </section>
 
-    <footer>
-        <div class="d-flex justify-content-center">
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-facebook-f fs-3"></i></a>
-             </div>
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-youtube fs-3"></i></a>
-            </div class="footer-icon m-2">
-             <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-instagram fs-3"> </i></a>
-            </div>
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-twitter fs-3"> </i></a>
-            </div>
-        </div>
-        <h5>©2022-2023 Copyright: <a href="https://github.com/Juanpi94/Proyecto-U.git">UCR Estudiantes</a></h5>
-    </footer>
+    <!--Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+        </script>
+
+    <!--FontAwesome-->
+    <script src="https://kit.fontawesome.com/48ce04dd4f.js" crossorigin="anonymous"></script>
+
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Main.js -->
+    <script src="/dist/js/main.js"></script>
+
+    <!-- Components -->
+    <script src="/dist/js/components/Nav.js"></script>
+    <script src="/dist/js/components/filters.js"></script>
+    <script src="/dist/js/components/Footer.js"></script>
+    <script src="/dist/js/components/RecipeCard.js"></script>
+    <script src="/dist/js/components/AccessButton.js"></script>
+    <script src="/dist/js/components/RecipeDetails.js"></script>
+    <script src="/dist/js/components/ProfileBuntton.js"></script>
+
+    <script>
+        const mountedApp = app.mount("#app");
+    </script>
 </body>
 
 </html>

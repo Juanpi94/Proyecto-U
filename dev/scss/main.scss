@@ -6,16 +6,12 @@
 @use 'base/resets';
 
 //Layout
-@use 'layout/nav';
-@use 'layout/login';
 @use 'layout/layout';
-@use 'layout/singUp';
 
 //Themes
 @use 'themes/boxThemes';
 
 //Components
-@use 'components/cards';
 @use 'components/buttons';
 @use 'components/menuprofile';
 

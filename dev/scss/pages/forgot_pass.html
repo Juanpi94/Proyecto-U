@@ -7,18 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>sign-up</title>
 
-    <!--FontAwesome-->
-    <script src="https://kit.fontawesome.com/48ce04dd4f.js" crossorigin="anonymous"></script>
-    <!--Bootstrap JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-
-    <!--Bootstrap JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
-
     <!-- Fuentes Alegreya Sans para titulos, subtitulos y botones, Roboto Regular para textos largos-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,80 +20,64 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <nav class="navbar navbar-expand-lg pe-4 ps-2">
-                <div class="container-fluid">
-                    <a href="/dist/index.html"><img src="/dist/imgs/logo.svg" class="logo"></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="ul-nav navbar-nav m-1">
-                            <li class="nav-item m-3">
-                                <a aria-current="page" href="/dist/index.html">Inicio</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <section id="app">
+        <header>
+            <nav>
+                <nav-area></nav-area>
+                <a class="btn-style" href="/dist/index.html">Volver</a>
             </nav>
-            <a class="btn-style" href="login.html">Volver</a>
-        </nav>
-    </header>
+        </header>
 
-    <!-------------------------------------------------------------------------------------------------->
-
-    <section>
-        <div class="d-flex align-content-center justify-content-center mt-5 mb-5">
-            <div class="d-block box-style content">
-                <form>
-                    <div class="h-100 w-100 text-center">
-                        <img src="/dist/imgs/logo.svg" alt="logo">
-                    </div>
-                    <div class="content align-items-center justify-content-evenly text-center">
-                        <div class="w-50 m-4 d-inline">
-                            <div class="mb-3">
-                                <label for="forgot_pass" class="form-label fs-4">
-                                    Digite el correo con el que se encuentra registrado para la recuperación de su
-                                    contraseña
-                                </label>
-                                <input type="email" class="form-control text-center" id="forgot_pass" required>
+        <section>
+            <div class="box-centered mt-5 mb-5">
+                <div class="d-block box-style content">
+                    <form>
+                        <div class="h-100 w-100 text-center">
+                            <img src="/dist/imgs/logo.svg" alt="logo">
+                        </div>
+                        <div class="content align-items-center justify-content-evenly text-center">
+                            <div class="w-50 m-4 d-inline">
+                                <div class="mb-3">
+                                    <label for="forgot_pass" class="form-label fs-4">
+                                        Digite el correo con el que se encuentra registrado para la recuperación de su
+                                        contraseña
+                                    </label>
+                                    <input type="email" class="form-control text-center" id="forgot_pass" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="text-center w-100">
-                        <button class="btn-style" type="submit">Enviar</button>
-                    </div>
-                </form>
+                        <div class="text-center w-100">
+                            <button class="btn-style" type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <footer-page></footer-page>
     </section>
 
-    <!-------------------------------------------------------------------------------------------------->
-    <main></main>
+    <!--Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+        </script>
 
-    <footer>
-        <div class="d-flex justify-content-center">
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-facebook-f fs-3"></i></a>
-            </div>
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-youtube fs-3"></i></a>
-            </div class="footer-icon m-2">
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-instagram fs-3"> </i></a>
-            </div>
-            <div class="footer-icon m-2">
-                <a href="https://github.com/Juanpi94/Proyecto-U.git">
-                    <i class="fab fa-twitter fs-3"> </i></a>
-            </div>
-        </div>
-        <h5>©2022-2023 Copyright: <a href="https://github.com/Juanpi94/Proyecto-U.git">UCR Estudiantes</a></h5>
-    </footer>
+    <!--FontAwesome-->
+    <script src="https://kit.fontawesome.com/48ce04dd4f.js" crossorigin="anonymous"></script>
+
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Main.js -->
+    <script src="/dist/js/main.js"></script>
+
+    <!-- Components -->
+    <script src="/dist/js/components/Nav.js"></script>
+    <script src="/dist/js/components/Footer.js"></script>
+
+    <script>
+        const mountedApp = app.mount("#app");
+    </script>
 </body>
 
 </html>
