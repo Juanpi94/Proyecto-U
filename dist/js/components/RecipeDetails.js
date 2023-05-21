@@ -1,4 +1,15 @@
 app.component('recipe-details', {
+    props: {
+        id: {
+            type: Number,
+            default: 0
+        }
+    },
+    methods: {
+        onClickViewRecipeDetails(id) {
+            console.log("Sirve?")
+        }
+    },
     template:
         /*html*/
         `
@@ -7,7 +18,7 @@ app.component('recipe-details', {
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header box-orange">
-                        <h1 class="modal-title fs-5" id="RecipeDetailsLabel">Receta</h1>
+                        <h1 class="modal-title fs-5" id="RecipeDetailsLabel">{{ id }}</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body box-gray">

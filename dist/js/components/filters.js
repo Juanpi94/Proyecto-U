@@ -1,4 +1,9 @@
 app.component('filters', {
+    data() {
+        return {
+            categories: []
+        }
+    },
     template:
     /*html*/
     `

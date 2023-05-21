@@ -9,6 +9,7 @@
 
     <!--Archivos Css-->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/swiper-bundle.css">
 
     <!-- Fuentes Alegreya Sans para titulos, subtitulos y botones, Roboto Regular para textos largos-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +46,6 @@
             <!-- Fin de Slogan -->
         </header>
 
-
         <section>
             <!-- Area de recetas mas votadas -->
             <section>
@@ -59,23 +59,34 @@
                         </div>
                         <div
                             class="d-flex content p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
-                            <div class="container">
-                                <div class="d-flex align-content-center justify-content-center">
-                                    <div class="d-flex p-2">
-                                        <!-- Inicio de cards -->
-                                        <div v-for="i in 4">
-                                            <recipe-card v-on:recipedetails="onClickRecipeDetails"></recipe-card>
+                            <!-- Inicio de swiper -->
+                            <div class="slide-container swiper">
+                                <div class="slide-content">
+                                    <div class="d-flex card-wrapper swiper-wrapper p-3">
+                                        <!-- Card -->
+                                        <div v-for="n in 10" class="swiper-slide card m-2">
+                                            <recipe-card :id="n"
+                                                :image="n">
+                                            </recipe-card>
                                         </div>
-                                        <!-- Fin de cards -->
+                                        <!-- Card -->
                                     </div>
-
-                                    <!-- Modal -->
-                                    <recipe-details></recipe-details>
-                                    <!-- Fin modal -->
+                                </div>
+                                <div class="">
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
                                 </div>
                             </div>
+                            <!-- Fin de swiper -->
+
+                            <!-- Modal -->
+                            <recipe-details :id="n"></recipe-details>
+                            <!-- Fin modal -->
                         </div>
                     </div>
+                </div>
+                </div>
+                </div>
                 </div>
             </section>
             <!-- Fin de area de recetas mas votadas -->
@@ -122,7 +133,8 @@
                                 </div>
                             </div>
                             <div class="m-2 d-flex justify-content-end">
-                                <a class="btn-style" type="submit" href="/dev/scss/pages/all_recipes.html">Ver todas las recetas</a>
+                                <a class="btn-style" type="submit" href="/dev/scss/pages/all_recipes.html">Ver todas las
+                                    recetas</a>
                             </div>
                         </div>
                     </div>
@@ -160,6 +172,10 @@
     <script>
         const mountedApp = app.mount("#app");
     </script>
+
+    <!-- swiper -->
+    <script src="js/swipper/swiper-bundle.js"></script>
+    <script src="js/swipper/script.js"></script>
 </body>
 
 </html>

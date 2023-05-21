@@ -10,62 +10,70 @@ de la base de datos
 
 a continuacion un resumen de los commits echos durante el proceso
 
-Primera parte:
+Primera parte:{
 
-Primer-commit{
-    se subió el proyecto como tal con unos atributos en el index, archivos SCSS y CSS, ademas de JS y las
-    carpetas de las estructura 7 en 1
+    Primer-commit{
+        se subió el proyecto como tal con unos atributos en el index, archivos SCSS y CSS, ademas de JS y las
+        carpetas de las estructura 7 en 1
+    }
+
+    Segundo-commit{
+        Se estableció la apariencia y la responsividad del area de login, ademas de algunos componentes
+        Ademas se conecto el login con el index.html
+    }
+
+    Tercer-commit{
+        Se agregaron los links de comunicacion entre paginas como registro/login/index para sus debidos procesos,
+        ademas de darle forma a la seccion de regitro
+    }
+
+    Cuarto-commit{
+        Se arreglaron algunos problemas de responsividad y aun quedaron errores del footer por resolver
+    }
+
+    Quinto-commit{
+        Se arreglaron algunos problemas de responsividad y errores del footer aunque algunos por resolver
+    }
+
+    Sexto-commit{
+        La responsividad de las paginas registrar y acceder están al 80% de su responsividad
+    }
+
+    Septimo-commit{
+        La responsividad de regitrar, inicar o login, recuperar contraseña quedaron al 100% responsivas, ademas de montar la pagina
+        de recuperar contraseña y su llamado a esta en su link especifico
+    }
+
+    Octavo-commit{
+        Se agrego el area de perfil de usuario con su respectiva responsividad, ademas de agregar dos cards en cada area para 
+        generar la visualizacion de estas a futuro.
+    }
+
+    Noveno-commit{
+        Se ha completado al 90% la primera parte del proyecto, se agregaron botones como el de perfil, ademas de mejorar
+        la apariencia del index.html, faltando mostrar los datos de la receta la ser consultada
+    }
+
+    Decimo-commit{
+        Se agregó el modal cuando le da al boton de ver receta de los cards para mostrar la información general de dicha receta
+        ademas de algunas funciones de Vue.js que no viene para este primera entrega
+        Se separaron el footer y el nav para que se muestren en archivos distintos por si necesitan modificacion
+    }
+
+    Onceavo-commit{
+        Se corrigieron errores de css y responsividad, ademas de agregar un modal que despliega toda la infomacion de la receta
+        deseada
+    }
+
+    Doceavo-commit{
+        Se eliminaron documentos y funciones que no estaban en uso, se modificaron algunos atributos de los archivos SCSS
+        Ademas de agregar los filtros a un archivo js
+    }
 }
 
-Segundo-commit{
-    Se estableció la apariencia y la responsividad del area de login, ademas de algunos componentes
-    Ademas se conecto el login con el index.html
-}
+Segunda parte:{
 
-Tercer-commit{
-    Se agregaron los links de comunicacion entre paginas como registro/login/index para sus debidos procesos,
-    ademas de darle forma a la seccion de regitro
-}
-
-Cuarto-commit{
-    Se arreglaron algunos problemas de responsividad y aun quedaron errores del footer por resolver
-}
-
-Quinto-commit{
-    Se arreglaron algunos problemas de responsividad y errores del footer aunque algunos por resolver
-}
-
-Sexto-commit{
-    La responsividad de las paginas registrar y acceder están al 80% de su responsividad
-}
-
-Septimo-commit{
-    La responsividad de regitrar, inicar o login, recuperar contraseña quedaron al 100% responsivas, ademas de montar la pagina
-    de recuperar contraseña y su llamado a esta en su link especifico
-}
-
-Octavo-commit{
-    Se agrego el area de perfil de usuario con su respectiva responsividad, ademas de agregar dos cards en cada area para 
-    generar la visualizacion de estas a futuro.
-}
-
-Noveno-commit{
-    Se ha completado al 90% la primera parte del proyecto, se agregaron botones como el de perfil, ademas de mejorar
-    la apariencia del index.html, faltando mostrar los datos de la receta la ser consultada
-}
-
-Decimo-commit{
-    Se agregó el modal cuando le da al boton de ver receta de los cards para mostrar la información general de dicha receta
-    ademas de algunas funciones de Vue.js que no viene para este primera entrega
-    Se separaron el footer y el nav para que se muestren en archivos distintos por si necesitan modificacion
-}
-
-Onceavo-commit{
-    Se corrigieron errores de css y responsividad, ademas de agregar un modal que despliega toda la infomacion de la receta
-    deseada
-}
-
-Doceavo-commit{
-    Se eliminaron documentos y funciones que no estaban en uso, se modificaron algunos atributos de los archivos SCSS
-    Ademas de agregar los filtros a un archivo js
+    primer-commit{
+        addecion de archivos para el uso correcto del swipper
+    }
 }
