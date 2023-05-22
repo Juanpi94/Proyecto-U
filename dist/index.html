@@ -47,26 +47,30 @@
         </header>
 
         <section>
-            <!-- Area de recetas mas votadas -->
-            <section>
-                <div class="d-flex align-content-center justify-content-center mt-4">
-                    <div class="bg-black bg-opacity-50 rounded-4 p-4 w-75">
+            <div class="w-100 d-flex justify-content-center mt-4">
+                <!-- Area de recetas mas votadas -->
+                <div class="w-95">
+                    <div class="bg-black bg-opacity-50 rounded-4 p-4">
                         <div class="text-center p-2">
                             <div class="d-inline-block border-5 border-bottom border-top mb-2">
-                                <h2 class="text-white m-0 p-1">Recetas <span class="text-danger fw-bold">más</span>
-                                    votadas</h2>
+                                <h2 class="text-white m-0 p-1">
+                                    Recetas
+                                    <span class="text-danger fw-bold">
+                                        más
+                                    </span>
+                                    votadas
+                                </h2>
                             </div>
                         </div>
-                        <div
-                            class="d-flex content p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
+
+                        <div class="mt-3 bg-black rounded-4 bg-opacity-50" style="background-color: brown;">
                             <!-- Inicio de swiper -->
                             <div class="slide-container swiper">
                                 <div class="slide-content">
-                                    <div class="d-flex card-wrapper swiper-wrapper p-3">
+                                    <div class="card-wrapper swiper-wrapper p-3">
                                         <!-- Card -->
                                         <div v-for="n in 10" class="swiper-slide card m-2">
-                                            <recipe-card :id="n"
-                                                :image="n">
+                                            <recipe-card :id="n" :image="n">
                                             </recipe-card>
                                         </div>
                                         <!-- Card -->
@@ -85,62 +89,63 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                </div>
-                </div>
-            </section>
-            <!-- Fin de area de recetas mas votadas -->
+                <!-- Area de recetas mas votadas -->
+            </div>
 
-            <!-- Area de todas las recetas -->
-            <section>
+            <div class="w-100 d-flex justify-content-center mt-4">
                 <!--Filtros-->
-                <section>
-                    <div class="d-flex align-content-center justify-content-center">
-                        <div class="d-inline-block box-style content mt-4 w-75">
-                            <!-- Comienso de los filtros -->
-                            <filters></filters>
-                            <!-- Fin de los filtros -->
+                <div class="w-95 box-style">
+                    <div class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                            <h3 class="navbar-brand fw-bold text-white">Filtros:</h3>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#filtersAll" aria-controls="filtersAll" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="filtersAll">
+                                <ul class="navbar-nav">
+                                    <li v-for="(category, index) in categories" class="nav-item">
+                                        <recipe-category-button :name="category.name">
+                                        </recipe-category-button>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </section>
-                <!--Fin de filtros-->
+                </div>
+                <!--Filtros-->
+            </div>
+            <div class="w-100 d-flex justify-content-center mb-4">
+                <!-- Area de todas las recetas -->
+                <div class="w-95 bg-black rounded-4 bg-opacity-75 p-3">
+                    <div class="text-center p-2 mb-3">
+                        <div class="d-inline-block border-5 border-bottom border-top mb-2">
+                            <h2 class="text-white m-0 p-1">Todas <span class="text-danger fw-bold">las</span>
+                                recetas
+                            </h2>
+                        </div>
+                    </div>
 
-                <section>
-                    <div class="d-flex align-content-center justify-content-center mb-4 mt-1">
-                        <div class="bg-black rounded-4 bg-opacity-75 w-75 p-3">
-                            <div class="text-center p-2">
-                                <div class="d-inline-block border-5 border-bottom border-top mb-2">
-                                    <h2 class="text-white m-0 p-1">Todas <span class="text-danger fw-bold">las</span>
-                                        recetas</h2>
-                                </div>
-                            </div>
-                            <div
-                                class="d-flex content p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
-                                <div class="container">
-                                    <div class="d-flex align-content-center justify-content-center">
-                                        <div class="d-flex p-2">
-                                            <!-- Inicio de cards -->
-                                            <div v-for="i in 4">
-                                                <recipe-card v-on:recipedetails="onClickRecipeDetails"></recipe-card>
-                                            </div>
-                                            <!-- Fin de cards -->
-                                        </div>
-
-                                        <!-- Modal -->
-                                        <recipe-details></recipe-details>
-                                        <!-- Fin modal -->
+                    <div class="p-2 bg-black rounded-4 bg-opacity-50">
+                        <div class="container">
+                            <div class="d-flex align-content-center justify-content-center">
+                                <div class="d-flex p-2">
+                                    <!-- Card -->
+                                    <div v-for="n in 5" class="card m-2">
+                                        <recipe-card :id="n" :image="n">
+                                        </recipe-card>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="m-2 d-flex justify-content-end">
-                                <a class="btn-style" type="submit" href="/dev/scss/pages/all_recipes.html">Ver todas las
-                                    recetas</a>
+                                    <!-- Card -->
+                                <!-- Modal -->
+                                <recipe-details></recipe-details>
+                                <!-- Fin modal -->
                             </div>
                         </div>
                     </div>
-                </section>
-            </section>
-            <!-- Fin de area de todas las recetas -->
+                </div>
+                <!-- Area de todas las recetas -->
+            </div>
         </section>
 
         <footer-page></footer-page>
@@ -157,6 +162,9 @@
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+    <!-- Axios API -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <!-- Main.js -->
     <script src="js/main.js"></script>
 
@@ -168,6 +176,7 @@
     <script src="js/components/AccessButton.js"></script>
     <script src="js/components/RecipeDetails.js"></script>
     <script src="js/components/ProfileBuntton.js"></script>
+    <script src="js/components/RecipeCategoryButton.js"></script>
 
     <script>
         const mountedApp = app.mount("#app");

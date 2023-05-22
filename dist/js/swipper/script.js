@@ -1,7 +1,7 @@
 var swiper = new Swiper(".slide-content", {
-    slidesPerView: 3,
-    spaceBetween: 50,
-    //loop: false,
+    slidesPerView: 4,
+    spaceBetween: 10,
+    loop: true,
     //freeMode: true,
     //loopFillGroupWithBlank: true,
     navigation: {
@@ -22,9 +22,9 @@ var swiper = new Swiper(".slide-content", {
             slidesPerView: 3,
             slidesPerGroup: 3,
         },
-        1380:{
-            slidesPerView: 4,
-            slidesPerGroup: 3,
+        1280:{
+            slidesPerView: 5,
+            slidesPerGroup: 5,
         },
     },
   });

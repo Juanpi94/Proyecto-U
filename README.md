@@ -73,7 +73,11 @@ Primera parte:{
 
 Segunda parte:{
 
-    primer-commit{
+    Primer-commit{
         addecion de archivos para el uso correcto del swipper
+    }
+
+    Segundo-commit{
+        Se agregó la funcionalidad del swiper ademas de verificar su debida responsividad en diferentes dispositivos
     }
 }

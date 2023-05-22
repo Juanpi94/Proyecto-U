@@ -1,7 +1,16 @@
 app.component('filters', {
-    data() {
-        return {
-            categories: []
+    props: {
+        id: {
+            type: Number,
+            default: 0
+        },
+        image:{
+            type: String
+        }
+    },
+    methods: {
+        onClickViewRecipe() {
+
         }
     },
     template:
