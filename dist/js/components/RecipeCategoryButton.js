@@ -6,8 +6,8 @@ app.component('recipe-category-button', {
     },
     methods:{
         onClickCategoryButton(){
-            console.log(this.name);
-            //this.$emit('selectedcategory', this.name);
+            //console.log(this.name);
+            this.$emit('selectedcategory', this.name);
         }
     },
     template: 

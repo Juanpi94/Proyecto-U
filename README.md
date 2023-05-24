@@ -88,4 +88,8 @@ Segunda parte:{
     Cuarto-commit{
         Se agregó la funcionalidad del modal para ver los datos de las recetas
     }
+
+    Quinto-commit{
+        Modificaciones menores en componentes que afectaban al rendimineto de a pagina
+    }
 }

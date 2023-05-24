@@ -17,12 +17,12 @@ app.component('recipe-details', {
             default: "Recipe category"
         },
         time:{
-            type: Number,
-            default: 0
+            type: String,
+            default: "0min"
         },
-        totalTime:{
-            type: Number,
-            default: 0  
+        totaltime:{
+            type: String,
+            default: "0min"  
         },
         level:{
             type: String,
@@ -48,7 +48,7 @@ app.component('recipe-details', {
                     <div class="modal-body box-gray">
                         <section>
                             <div class="content w-100 justify-content-around">
-                                <div class="w-50 box-centered m-2 p-2 bg-black rounded-4 bg-opacity-50">
+                                <div class="modal-img box-centered m-2 p-2 bg-black rounded-4 bg-opacity-50">
                                     <img class="p-2 rounded-4 img-fluid" v-bind:src="image" alt="{{ name }}">>
                                 </div>
                                 <div
@@ -65,7 +65,7 @@ app.component('recipe-details', {
                                             </div>
                                             <div class="m-1 w-50">
                                                 <h3>Tiempo total:</h3>
-                                                <p>{{ totalTime }}</p>
+                                                <p>{{ totaltime }}</p>
                                             </div>
                                         </div>
                                         <h5><span class="fw-bold">Categoria: </span>{{ category }}</h5>
