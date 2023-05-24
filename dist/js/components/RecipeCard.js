@@ -1,38 +1,84 @@
 app.component('recipe-card', {
     props: {
-        id: {
-            type: Number,
-            default: 0
-        },
         image:{
+            type: String        
+        },
+        category:{
+            type: String,
+            default: "Recipe category"
+        },
+        name:{
+            type: String,
+            default: "Recipe category"
+        },
+        description:{
+            type: String,
+            default: "Recipe description"
+        },
+        time:{
+            type: String,
+            default: "Recipe time"
+        },
+        level:{
+            type: String,
+            default: "Recipe level"
+        },
+        likes:{
+            type: Number,
+            default: 10
+        },
+        index:{
             type: String
+        },
+    },
+    data(){
+        return{
+            addLikes: this.likes
         }
     },
     methods: {
-        onClickViewRecipe() {
-
+        onClickLike(){
+            //this.$emit('recipelike', this.index);
+            this.addLikes++;
+        },
+        onClickUnLike(){
+            //this.$emit('recipeunlike', this.index);
+            if(this.addLikes > 0) this.addLikes--;
+        },
+        onClickViewRecipe(){
+            //this.$emit('recipedetails', this.index);
+            //this.$test.emit('foo', this.name);
         }
     },
     template:
         /*html*/
         `
-        <div class="card-header">
+        <div class="card-header box-orange">
+            <div class="row justify-content-evenly">
+                <div class="col">
+                    <p class="card-title text-danger"> {{name}} </p>
+                </div>
+            </div>
             <img v-bind:src="image" class="card-img-top img-fluid" alt="image">
-         </div>
-        <div class="card-body">
-            <h5 class="card-title">{{ id }}</h5>
-            <p class="card-text">
-                Some quick example text to build 
-                on the card title and make up 
-                the bulk of the card's content.
-            </p>
         </div>
-        <div class="card-footer d-flex justify-content-end">
+        <div class="card-body box-gray">
+            <div class="row justify-content-evenly text-center">
+                <div class="w-50">
+                    <p>{{ level }}</p>
+                </div>
+                <div class="w-50">
+                    <p>{{ category }}</p>
+                </div>
+            </div>
+            <p>{{ description }}</p>
+        </div>
+        <div class="card-footer box-orange d-flex justify-content-end">
+                <div class="col d-flex">
+                    <p class="fs-6 text-success">{{ likes }}</p>
+                </div>
             <!-- Button trigger modal -->
-            <button type="button" class="btn-style"
-                v-on:click = "onClickViewRecipe()"  
-                data-bs-toggle="modal" 
-                data-bs-target="#RecipeDetails">
+            <button type="button" class="btn-style" v-on:click="onClickViewRecipe()"
+                data-bs-toggle="modal" data-bs-target="#RecipeDetails">
                 Ver más
             </button>
         </div>`

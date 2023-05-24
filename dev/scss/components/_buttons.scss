@@ -15,3 +15,24 @@
         border: solid v.$clr-white 0.25rem;
     }
 }
+
+.buttons {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-between;
+}
+
+.button {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+
+    .buttons {
+        flex-wrap: wrap;
+    }
+
+    .button {
+        width: 33.33%;
+    }
+}

@@ -4,28 +4,163 @@ const app = Vue.createApp({
             isLogin: false,
             categories: [
                 {id:1, name:"All"},
-            ]
+            ],
+            recipestoshow: [],
+            recipes: [],
+            filas: 10,
+            favorites: [],
         }
     },
     mounted: function () {
+        //AXIOS recipes to show
+        for (let i = 0; i < this.filas*4; i++) {
+            axios({
+                method: 'get',
+                url: 'https://www.themealdb.com/api/json/v1/1/random.php'
+            }).then((response) => {
+                let items = response.data.meals;
+                //console.log(items, i)
+                items.forEach((element, index) => {
+                    if (this.recipestoshow.length > 0) {
+                        let find = element.strMeal
+                        let s = i-1
+                        //console.log(s)
+                        //console.log(this.recipestoshow[s])
+                        if (this.recipestoshow[s] == "" || this.recipestoshow[s] == null || this.recipestoshow[s] == undefined) {
+                            console.log("undefined")
+                            s = this.recipestoshow.length-1
+                        }
+                        //console.log(this.recipestoshow[s].name.lastIndexOf(find))
+                        if (this.recipestoshow[s].name.lastIndexOf(find) < 0) {
+                            this.recipestoshow.push({
+                                name: element.strMeal,
+                                image: element.strMealThumb,
+                                id: element.idMeal,
+                                level: "Easy",
+                                description: "Se supone va una descripcion que la API no contiene, por lo que se muestera este texto",
+                                category: element.strCategory,
+                                likes: 18,
+                            });
+                            //console.log("no se repitio")
+                            //console.log(this.recipestoshow[s].name)
+                        }else{
+                            console.log("se repitio")
+                            i = this.recipestoshow.length-1
+                        }
+                    } else {
+                        this.recipestoshow.push({
+                            name: element.strMeal,
+                            image: element.strMealThumb,
+                            id: element.idMeal,
+                            level: "Easy",
+                            description: "Se supone va una descripcion que la API no contiene, por lo que se muestera este texto",
+                            category: element.strCategory,
+                            likes: 18,
+                        });
+                    }
+                    console.log("lista de show: "+this.recipestoshow.length)
+                });
+            }).catch(error => console.log(error))
+        }
+        //Fin de AXIOS recipes to show
+
+        //AXIOS favorites
+        for (let i = 0; i < 10; i++) {
+            axios({
+                method: 'get',
+                url: 'https://www.themealdb.com/api/json/v1/1/random.php'
+            }).then((response) => {
+                let items = response.data.meals;
+                //console.log(items, i)
+                items.forEach((element, index) => {
+                    if (this.favorites.length > 0) {
+                        let find = element.strMeal
+                        let s = i-1
+                        //console.log(s)
+                        //console.log(this.favorites[s])
+                        if (this.favorites[s] == "" || this.favorites[s] == null || this.favorites[s] == undefined) {
+                            console.log("undefined")
+                            s = this.favorites.length-1
+                        }
+                        //console.log(this.favorites[s].name.lastIndexOf(find))
+                        if (this.favorites[s].name.lastIndexOf(find) < 0) {
+                            this.favorites.push({
+                                name: element.strMeal,
+                                image: element.strMealThumb,
+                                id: element.idMeal,
+                                level: "Easy",
+                                description: "Se supone va una descripcion que la API no contiene, por lo que se muestera este texto",
+                                category: element.strCategory,
+                                likes: 18,
+                            });
+                            //console.log("no se repitio")
+                            //console.log(this.favorites[s].name)
+                        }else{
+                            //console.log("se repitio")
+                            this.i = this.favorites.length-1
+                            s = this.favorites.length-1
+                        }
+                    } else {
+                        this.favorites.push({
+                            name: element.strMeal,
+                            image: element.strMealThumb,
+                            id: element.idMeal,
+                            level: "Easy",
+                            description: "Se supone va una descripcion que la API no contiene, por lo que se muestera este texto",
+                            category: element.strCategory,
+                            likes: 18,
+                        });
+                    }
+                    console.log("lista de fav: "+this.favorites.length)
+                });
+            }).catch(error => console.log(error))
+        }
+        //Fin de AXIOS favorites
+
+
+        //AXIOS para las categorias
         axios({
             method: 'get',
             url: 'https://www.themealdb.com/api/json/v1/1/list.php?c=list'
+        }).then((response) => {
+            let items = response.data.meals;
+            items.forEach((element, index) => {
+                this.categories.push({
+                    id: index,
+                    name: element.strCategory
+                });
+            });
+        }).catch(error => console.log(error))
+        
+        //Default all recipes
+        axios({
+            method: 'get',
+            url: 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef'
         })
             .then(
                 (response) => {
-                    console.log(response.data.meals);
                     let items = response.data.meals;
-                    items.forEach((element, index) => {
-                        this.categories.push({
-                            id: index,
-                            name: element.strCategory
+                    //console.log(items);
+                    this.recipes = [];
+
+                    if(items.length > 0) this.loading = false;
+
+                    items.forEach((element) => {
+                        this.recipes.push({
+                            name: element.strMeal,
+                            image: element.strMealThumb,
+                            id: element.idMeal,
+                            level: "Easy",
+                            instructions: "N/A",
+                            category: "Beef",
+                            likes: 18,
                         });
                     });
                 })
             .catch(
                 error => console.log(error)
             )
+
     },
     methods: {
         onClickSelectedCategory(category) {

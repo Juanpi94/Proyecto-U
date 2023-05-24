@@ -6,7 +6,7 @@ app.component('recipe-details', {
         }
     },
     methods: {
-        onClickViewRecipeDetails(id) {
+        onClickViewRecipeDetails() {
             console.log("Sirve?")
         }
     },
