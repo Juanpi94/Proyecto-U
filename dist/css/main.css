@@ -140,6 +140,9 @@ footer {
 .card .card-title {
   white-space: nowrap;
   text-overflow: ellipsis;
+  overflow: hidden;
+  color: hsl(0deg, 0%, 100%) !important;
+  font-size: medium;
 }
 
 .card-show-area {
@@ -157,10 +160,6 @@ footer {
   display: flex;
 }
 
-.w-card {
-  width: 18%;
-}
-
 .w-90 {
   width: 90%;
 }
@@ -172,9 +171,6 @@ footer {
 @media only screen and (max-width: 520px) {
   .content {
     display: block;
-  }
-  .w-card {
-    width: 50%;
   }
 }
 .box-title {

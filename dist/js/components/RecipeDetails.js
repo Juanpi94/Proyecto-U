@@ -1,67 +1,83 @@
 app.component('recipe-details', {
     props: {
-        id: {
+        name:{
+            type:String
+        },
+        image:{
+            type:String
+        },
+        ingredients:{
+            type:String
+        },
+        instructions:{
+            type:String
+        },
+        category:{
+            type: String,
+            default: "Recipe category"
+        },
+        time:{
             type: Number,
             default: 0
-        }
-    },
-    methods: {
-        onClickViewRecipeDetails() {
-            console.log("Sirve?")
-        }
+        },
+        totalTime:{
+            type: Number,
+            default: 0  
+        },
+        level:{
+            type: String,
+            default: "Recipe level"
+        },
     },
     template:
         /*html*/
         `
         <!-- Modal -->
-        <div class="modal modal-lg fade" id="RecipeDetails" tabindex="-1" aria-labelledby="RecipeDetailsLabel" aria-hidden="true">
+        <div class="modal modal-lg fade" 
+            id="RecipeDetails" 
+            tabindex="-1" 
+            aria-labelledby="RecipeDetailsLabel" 
+            aria-hidden="true">
+
             <div class="modal-dialog modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header box-orange">
-                        <h1 class="modal-title fs-5" id="RecipeDetailsLabel">{{ id }}</h1>
+                        <h2 class="modal-title fw-bold text-white" id="RecipeDetailsLabel">{{ name }}</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body box-gray">
                         <section>
                             <div class="content w-100 justify-content-around">
-                                <div
-                                    class="box-centered m-2 p-2 bg-black rounded-4 bg-opacity-50">
-                                    <img class="p-2 rounded-4 img-fluid" src="/dist/imgs/4.jpg" alt="">
+                                <div class="w-50 box-centered m-2 p-2 bg-black rounded-4 bg-opacity-50">
+                                    <img class="p-2 rounded-4 img-fluid" v-bind:src="image" alt="{{ name }}">>
                                 </div>
                                 <div
                                     class="box-centered m-2 p-2 bg-black rounded-4 bg-opacity-50">
                                     <div class="p-2 text-white w-100">
                                         <h3>Nombre de la receta:</h3>
-                                        <p>Olla de carne</p>
+                                        <h4>{{ name }}</h4>
                                         <h3>Dificultad:</h3>
-                                        <p>Facil</p>
-                                        <div class="content">
+                                        <p>{{ level }}</p>
+                                        <div class="content box-centered">
                                             <div class="m-1 w-50">
                                                 <h3>Tiempo :</h3>
-                                                <p>20min</p>
+                                                <p>{{ time }}</p>
                                             </div>
                                             <div class="m-1 w-50">
                                                 <h3>Tiempo total:</h3>
-                                                <p>4horas</p>
+                                                <p>{{ totalTime }}</p>
                                             </div>
                                         </div>
-    
+                                        <h5><span class="fw-bold">Categoria: </span>{{ category }}</h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="d-flex m-2 p-2 bg-black rounded-4 bg-opacity-50">
                                 <div class="p-2 text-white">
-                                    <h3>Descripcion de la receta</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati veniam esse
-                                        reprehenderit beatae ipsam totam nobis possimus minus. Doloremque porro sint
-                                        delectus
-                                        omnis laudantium exercitationem sequi animi ducimus alias voluptate!
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates deleniti in,
-                                        animi
-                                        temporibus quibusdam quaerat itaque nihil quis nulla porro, quas beatae. Aliquid
-                                        quis
-                                        repellat, quod rerum iusto sed sapiente.
-                                    </p>
+                                    <h4 class="fw-bold">ingredientes de la receta</h4>
+                                    <p>{{ ingredients }}</p>
+                                    <h4 class="fw-bold">Descripcion de la receta</h4>
+                                    <p>{{ instructions }}</p>
                                 </div>
                             </div>
                         </section>

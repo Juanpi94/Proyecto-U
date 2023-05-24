@@ -9,6 +9,7 @@ const app = Vue.createApp({
             recipes: [],
             filas: 10,
             favorites: [],
+            recipe: {},
         }
     },
     mounted: function () {
@@ -58,7 +59,7 @@ const app = Vue.createApp({
                             likes: 18,
                         });
                     }
-                    console.log("lista de show: "+this.recipestoshow.length)
+                    //console.log("lista de show: "+this.recipestoshow.length)
                 });
             }).catch(error => console.log(error))
         }
@@ -111,7 +112,7 @@ const app = Vue.createApp({
                             likes: 18,
                         });
                     }
-                    console.log("lista de fav: "+this.favorites.length)
+                    //console.log("lista de fav: "+this.favorites.length)
                 });
             }).catch(error => console.log(error))
         }
@@ -154,6 +155,8 @@ const app = Vue.createApp({
                             instructions: "N/A",
                             category: "Beef",
                             likes: 18,
+                            time: "20min ",
+                            ingredients: "N/A",
                         });
                     });
                 })
@@ -163,6 +166,45 @@ const app = Vue.createApp({
 
     },
     methods: {
+        onClickRecipeDetails(index) {
+            console.log("Recipe iD -> "+ index);
+            //this.selectedIndex = index;
+
+            axios({
+                method: 'get',
+                url: 'https://www.themealdb.com/api/json/v1/1/lookup.php?i='+index
+            })
+                .then(
+                    (response) => {
+                        let item = response.data.meals;
+                        console.log(item);
+                        
+                        this.recipe.likes = 18;
+                        this.recipe.level = "Easy";
+                        this.recipe.time = "20 min";
+                        this.recipe.totalTime = "160 min";
+                        this.recipe.id = item[0].idMeal;
+                        this.recipe.name = item[0].strMeal;
+                        this.recipe.image = item[0].strMealThumb;
+                        this.recipe.category = item[0].strCategory;
+                        this.recipe.instructions = item[0].strInstructions;
+                        
+                        let ingredientsList = "";
+
+                        for(let i = 1; i<20; i++){
+                            if(item[0]["strIngredient"+i] !="" && item[0]["strIngredient"+i] !=null){
+                                ingredientsList += item[0]["strMeasure"+i] + " - " + item[0]["strIngredient"+i] + "\n";
+                            }    
+                        }
+                        
+                        //console.log(ingredientsList);
+                        this.recipe.ingredients = ingredientsList;
+                        console.log(this.recipe)
+                    })
+                .catch(
+                    error => console.log(error)
+                )
+        },
         onClickSelectedCategory(category) {
             console.log("Algo?")
         }

@@ -47,6 +47,22 @@
         </header>
 
         <section>
+
+            <div>
+                <!-- Modal -->
+                <recipe-details 
+                    :image="recipe.image" 
+                    :name="recipe.name" 
+                    :category="recipe.category"
+                    :time="recipe.time" 
+                    :totalTime="recipe.totalTime" 
+                    :level="recipe.level"
+                    :ingredients="recipe.ingredients" 
+                    :instructions="recipe.instructions">
+                </recipe-details>
+                <!-- Fin modal -->
+            </div>
+
             <div class="w-100 d-flex justify-content-center mt-4">
                 <!-- Area de recetas mas votadas -->
                 <div class="w-95">
@@ -69,10 +85,11 @@
                                 <div class="slide-content">
                                     <div class="card-wrapper swiper-wrapper p-3">
                                         <!-- Card -->
-                                        <div v-for="(item, index) in favorites" class="swiper-slide card mb-1">
+                                        <div v-for="(item, index) in favorites" class="swiper-slide">
                                             <recipe-card :image="item.image" :category="item.category" :name="item.name"
                                                 :description="item.description" :time="item.time" :level="item.level"
-                                                :likes="item.likes" :index="item.id">
+                                                :likes="(item.likes*2)-index" :index="item.id"
+                                                v-on:recipedetails="onClickRecipeDetails">
                                             </recipe-card>
                                         </div>
                                         <!-- Card -->
@@ -84,10 +101,6 @@
                                 </div>
                             </div>
                             <!-- Fin de swiper -->
-
-                            <!-- Modal -->
-                            <recipe-details></recipe-details>
-                            <!-- Fin modal -->
                         </div>
                     </div>
                 </div>
@@ -96,17 +109,41 @@
 
             <div class="w-100 d-flex justify-content-center mt-4">
                 <!--Filtros-->
-                <div class="w-95 box-style">
-                    Filtros
-                    <button class="btn-style p-2 fs-4 fa-solid fa-bars" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse-filters" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="">
-                    </button>
-                    <div class="mt-1 buttons collapse" id="collapse-filters">
-                        <div v-for="(category, index) in categories" class="d-flex justify-content-center p-1 button">
-                            <recipe-category-button :name="category.name"
-                                v-on:selectedcategory="onClickSelectedCategory">
-                            </recipe-category-button>
+                <div class="navbar navbar-expand-lg">
+                    <div class="container-fluid text-black">
+                        <h5 class="d-inline me-2">Filtros:</h5>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#filterLike" aria-controls="filterLike" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="content">
+                            <div class="collapse navbar-collapse" id="filterLike">
+                                <ul class="box-centered navbar-nav">
+                                    <div class="box-centered w-100">
+                                        <div>
+                                            <button class="btn-style m-2">All</button>
+                                        </div>
+                                        <div>
+                                            <button class="btn-style m-2">Breakfast</button>
+                                        </div>
+                                        <div>
+                                            <button class="btn-style m-2">Fastfood</button>
+                                        </div>
+                                    </div>
+                                    <div class="box-centered w-100">
+                                        <div>
+                                            <button class="btn-style m-2">Lunch</button>
+                                        </div>
+                                        <div>
+                                            <button class="btn-style m-2">Desserts</button>
+                                        </div>
+                                        <div>
+                                            <button class="btn-style m-2">Drinks</button>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,6 +153,17 @@
             <!-- Arreglar -->
             <div>
                 <!--
+                    <div class="w-95 box-style">
+                        <div class="mt-1 buttons collapse" id="collapse-filters">
+                            <div v-for="(category, index) in categories" class="d-flex justify-content-center p-1 button">
+                                <recipe-category-button :name="category.name"
+                                    v-on:selectedcategory="onClickSelectedCategory">
+                                </recipe-category-button>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="container">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#filtersAll" aria-controls="filtersAll" aria-expanded="false"
@@ -151,12 +199,13 @@
                         <div class="container">
                             <div class="d-flex align-content-center justify-content-center">
                                 <div class="d-flex p-2">
-                                    <div class="h-auto row">
+                                    <div class="w-100 row">
                                         <!-- Card -->
                                         <div v-for="(item, index) in recipestoshow" class="card p-1 col-md-3 mb-2">
                                             <recipe-card :image="item.image" :category="item.category" :name="item.name"
                                                 :description="item.description" :time="item.time" :level="item.level"
-                                                :likes="item.likes" :index="item.id">
+                                                :likes="item.likes" :index="item.id"
+                                                v-on:recipedetails="onClickRecipeDetails">
                                             </recipe-card>
                                         </div>
                                         <!-- Card -->

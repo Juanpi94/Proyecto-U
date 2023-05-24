@@ -46,40 +46,46 @@ app.component('recipe-card', {
             if(this.addLikes > 0) this.addLikes--;
         },
         onClickViewRecipe(){
-            //this.$emit('recipedetails', this.index);
+            this.$emit('recipedetails', this.index);
             //this.$test.emit('foo', this.name);
         }
     },
     template:
         /*html*/
         `
-        <div class="card-header box-orange">
-            <div class="row justify-content-evenly">
-                <div class="col">
-                    <p class="card-title text-danger"> {{name}} </p>
+        <div class="card mb-1">
+            <div class="card-header box-orange">
+                <div class="row justify-content-evenly">
+                    <div class="col">
+                        <p class="card-title"> {{name}} </p>
+                    </div>
                 </div>
+                <img v-bind:src="image" class="card-img-top img-fluid" alt="image">
             </div>
-            <img v-bind:src="image" class="card-img-top img-fluid" alt="image">
-        </div>
-        <div class="card-body box-gray">
-            <div class="row justify-content-evenly text-center">
-                <div class="w-50">
-                    <p>{{ level }}</p>
+            <div class="card-body box-gray">
+                <div class="row justify-content-evenly text-center">
+                    <div class="w-50">
+                        <p class="m-0 p-0 fw-bold">Level: </p>
+                        <p>{{ level }}</p>
+                    </div>
+                    <div class="w-50">
+                        <p class="m-0 p-0 fw-bold">Category: </p>
+                        <p>{{ category }}</p>
+                    </div>
                 </div>
-                <div class="w-50">
-                    <p>{{ category }}</p>
-                </div>
+                <p>{{ description }}</p>
             </div>
-            <p>{{ description }}</p>
-        </div>
-        <div class="card-footer box-orange d-flex justify-content-end">
-                <div class="col d-flex">
-                    <p class="fs-6 text-success">{{ likes }}</p>
-                </div>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn-style" v-on:click="onClickViewRecipe()"
-                data-bs-toggle="modal" data-bs-target="#RecipeDetails">
-                Ver más
-            </button>
+            <div class="card-footer box-orange d-flex justify-content-end">
+                    <div class="col d-flex">
+                        <p class="fs-6 text-success">{{ likes }}</p>
+                    </div>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn-style" 
+                    v-on:click="onClickViewRecipe()"
+                    data-bs-toggle="modal" 
+                    data-bs-target="#RecipeDetails">
+                    Ver más
+                </button>
+            </div>
         </div>`
 })

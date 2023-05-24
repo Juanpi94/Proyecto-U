@@ -84,4 +84,8 @@ Segunda parte:{
     Tercer-commit{
         Se agregaron las funciones para una lista aleatoria de recetas mas votadas y otra de 40 elementos de recetas en general, al que esta puede variar
     }
+
+    Cuarto-commit{
+        Se agregó la funcionalidad del modal para ver los datos de las recetas
+    }
 }

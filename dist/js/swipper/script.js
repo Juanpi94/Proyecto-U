@@ -4,11 +4,11 @@ var swiper = new Swiper(".slide-content", {
     loop: true,
     //freeMode: true,
     //loopFillGroupWithBlank: true,
+    
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-
     breakpoints:{
         0:{
             slidesPerView: 1,

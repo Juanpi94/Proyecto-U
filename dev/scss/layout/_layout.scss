@@ -48,6 +48,9 @@
     .card-title{
         white-space: nowrap;
         text-overflow: ellipsis;
+        overflow: hidden;
+        color: v.$clr-white !important;
+        font-size: medium;
     }
 }
 
@@ -64,10 +67,6 @@
     display: flex;
 }
 
-.w-card {
-    width: 18%;
-}
-
 .w-90 {
     width: 90%;
 }
@@ -78,8 +77,5 @@
 @media only screen and (max-width: 520px) {
     .content {
         display: block;
-    }
-    .w-card {
-        width: 50%;
     }
 }
