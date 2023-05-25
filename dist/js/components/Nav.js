@@ -1,4 +1,10 @@
 app.component('nav-area', {
+    methods: {
+        onClickAddRecipe(){
+            this.$emit('onaddrecipes');
+            //this.$test.emit('foo', this.name);
+        }
+    },
     template:
     /*html*/
     `
@@ -17,10 +23,10 @@ app.component('nav-area', {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="ul-nav navbar-nav m-1">
                     <li class="nav-item m-3">
-                        <a aria-current="page" href="/dist/index.html">Inicio</a>
+                        <a aria-current="page" class="btn-style" href="/dist/index.html">Inicio</a>
                     </li>
                     <li class="nav-item m-3">
-                        <a href="registro-receta.html">Añadir receta</a>
+                        <button v-on:click="onClickAddRecipe()" class="btn-style">Añadir receta</button>
                     </li>
                 </ul>
             </div>

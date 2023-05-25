@@ -31,18 +31,18 @@
         <section>
             <div class="box-centered mt-5 mb-5">
                 <div class="d-block box-style content">
-                    <form>
+                    <form @submit.prevent="onClickPassForgot">
                         <div class="h-100 w-100 text-center">
                             <img src="/dist/imgs/logo.svg" alt="logo">
                         </div>
                         <div class="content align-items-center justify-content-evenly text-center">
                             <div class="w-50 m-4 d-inline">
                                 <div class="mb-3">
-                                    <label for="forgot_pass" class="form-label fs-4">
+                                    <label for="forgotPass" class="form-label fs-4">
                                         Digite el correo con el que se encuentra registrado para la recuperación de su
                                         contraseña
                                     </label>
-                                    <input type="email" class="form-control text-center" id="forgot_pass" required>
+                                    <input v-model="forgotPass" type="email" class="form-control text-center" id="forgotPass" required>
                                 </div>
                             </div>
                         </div>

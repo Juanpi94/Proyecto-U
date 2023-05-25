@@ -1,4 +1,9 @@
 app.component('profile-button', {
+    methods:{
+        onClickLogOut(){
+            this.$emit('logout');
+        }
+    },
     template:
     /*html*/
     `
@@ -15,7 +20,7 @@ app.component('profile-button', {
                 <li><a href="#"><i class="fa-solid fa-gear"></i>Config</a></li>
                 <li><a href="#"><i class="fa-solid fa-circle-info"></i>Ayuda</a></li>
                 <li><a href="#"><i class="fa-solid fa-bug"></i>Reportar</a></li>
-                <li><a href="/dist/index.html"><i class="fa-solid fa-right-from-bracket"></i></i>Salir</a>
+                <li><a href="/dist/index.html" v-on:click="onClickLogOut"><i class="fa-solid fa-right-from-bracket"></i>Salir</a>
                 </li>
             </ul>
         </form>

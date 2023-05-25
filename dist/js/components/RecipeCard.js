@@ -76,16 +76,20 @@ app.component('recipe-card', {
                 <p>{{ description }}</p>
             </div>
             <div class="card-footer box-orange d-flex justify-content-end">
-                    <div class="col d-flex">
-                        <p class="fs-6 text-success">{{ likes }}</p>
-                    </div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn-style" 
-                    v-on:click="onClickViewRecipe()"
-                    data-bs-toggle="modal" 
-                    data-bs-target="#RecipeDetails">
-                    Ver más
-                </button>
+                <div class="content box-centered">
+                    <div class="m-1 w-50">
+                        <h5>{{ addLikes }}</h5>
+                    </div>
+                    <div class="m-1 w-50">
+                        <button type="button" class="btn-style" 
+                            v-on:click="onClickViewRecipe()"
+                            data-bs-toggle="modal" 
+                            data-bs-target="#RecipeDetails">
+                            Ver más
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>`
 })

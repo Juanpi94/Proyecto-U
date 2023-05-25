@@ -40,21 +40,6 @@ nav {
             list-style: none;
             margin: 10px 20px;
             font-weight: v.$font-bold;
-            a {
-                display: inline-block;
-                padding: 0.69rem;
-                text-decoration: none;
-                color: v.$clr-clear;
-                background-color: v.$clr-orange;
-                border-radius: 0.9rem;
-                border: solid v.$clr-black 0.25rem;
-                transition: 0.3s ease all;
-                &:hover {
-                    background-color: v.$clr-black;
-                    color: v.$clr-orange;
-                    border: solid v.$clr-white 0.25rem;
-                }
-            }
         }
     }
 }

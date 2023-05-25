@@ -26,11 +26,13 @@
             <!-- Barra de navegacion -->
             <section>
                 <nav>
-                    <nav-area></nav-area>
+                    <nav-area v-on:onaddrecipes="onClickAddRecipe"></nav-area>
+                    
                     <div class="d-flex">
                         <access-button v-if="!isLogin"></access-button>
                         <!-- Boton de perfil -->
-                        <profile-button v-if="isLogin"></profile-button>
+                        <profile-button v-if="isLogin" 
+                            v-on:logout="onClickLogOut"></profile-button>
                         <!-- Boton de perfil -->
                     </div>
                 </nav>

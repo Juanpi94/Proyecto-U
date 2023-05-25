@@ -91,5 +91,10 @@ Segunda parte:{
 
     Quinto-commit{
         Modificaciones menores en componentes que afectaban al rendimineto de a pagina
+    
+    }
+    Sexto-commit{
+        Se agregaron las funciones de login y recuperar contraseña, ademas del logout que se verifica si existem¿n datos
+        en cache para mantener la session activa
     }
 }

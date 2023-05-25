@@ -36,14 +36,14 @@
                             </h2>
                         </div>
                     </div>
-                        <form>
+                        <form @submit.prevent="onClickLogIn">
                             <div class="mb-3">
-                                <label for="user" class="form-label fs-4">Email / Usuario</label>
-                                <input v-model="user" type="email" class="form-control" id="user" aria-describedby="user" required>
+                                <label for="user" class="form-label fs-4">Email</label>
+                                <input v-model="user" class="form-control" type="email" id="user" required>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label fs-4">Contraseña</label>
-                                <input v-model="userpassword" type="userpassword" class="form-control" id="userpassword" required>
+                                <label for="userpassword" class="form-label fw-bold fs-4">Contraseña</label>
+                                <input v-model="userpassword" class="form-control" type="password" id="userpassword" required>
                             </div>
                             <div class="container pb-3">
                                 <div class="row">
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="text-center w-100">
-                                <button @click="submit" class="btn-style fw-bold fs-5">Acceder</button>
+                                <button class="btn-style" @click="redirigirLogIn" type="submit">Enviar</button>
                             </div>
                         </form>
                     </div>
