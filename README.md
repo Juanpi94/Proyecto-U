@@ -103,4 +103,10 @@ Segunda parte:{
         Se agrego la pagina de agregar receta ademas de sus funciones, 
         aunque esta no almacena las recetas en ningun lugar por ahora
     }
+
+    Octavo-commit{
+        Se agregó todo lo relacionado con el perfil de usuario ademas de un card para las recetas personalidas 
+        con el area de eliminar receta
+        Ademas se agrego la funcion de likes y dislikes de manera individual por receta traida de la API
+    }
 }

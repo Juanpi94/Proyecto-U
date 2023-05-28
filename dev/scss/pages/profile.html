@@ -15,6 +15,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="/dist/css/main.css">
+    <link rel="stylesheet" href="/dist/css/swiper-bundle.css">
 </head>
 
 <body>
@@ -22,158 +23,128 @@
         <header>
             <!-- Barra de navegacion -->
             <nav>
-                <nav-area></nav-area>
+                <nav-area v-on:onaddrecipes="onClickAddRecipe"></nav-area>
                 <!-- Boton de perfil -->
                 <profile-button></profile-button>
                 <!-- Boton de perfil -->
             </nav>
             <!-- Fin de Barra de navegacion -->
 
-            <!-- sección imagen/texto  //Modificar esta area --> 
-            <section class="w-75 mt-5 p-5 bg-black bg-opacity-50 rounded-4 container" id="about">
-                <div class="row justify-content-around ">
-                    <div class="col bg-black bg-opacity-50 rounded-3 m-3">
-                        <div class="m-5 text-center p-2 bg-light rounded-3">
-                            <div class="bg-black bg-opacity-50 rounded-4 p-5 text-center">
-                                <label for="exampleFormControlFile1">Subir imagen</label>
+            <!-- sección imagen/texto  //Modificar esta area -->
+            <section class="w-75 mt-5 p-3 bg-black bg-opacity-50 rounded-4 container" id="about">
+                <div class="col bg-black bg-opacity-50 rounded-3">
+                    <div class="about-text">
+                        <div class="container p-3 text-light mt-4">
+                            <div class="text-center">
+                                <h2 class="text-light">Datos del Usuario</h2>
+                                <hr />
                             </div>
-                            <div class="p-3">
-                                <input type="file" class="form-control p-0" id="exampleFormControlFile1">
-                            </div>
-                            <div>
-                                <input class="btn-br w-50" type="submit" value="Guardar" id="guardar">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col bg-black bg-opacity-50 rounded-3">
-                        <div class="container">
-                            <div class="about-text">
-                                <div class="container text-light mt-4">
-                                    <div class="text-center">
-                                        <h2 class="text-light">Datos del Usuario</h2>
-                                        <hr />
-                                    </div>
-                                    <div class="text-light">
-                                        <h3>Nombre:</h3>
-                                        <p>espacio donde se loggea el nombre de la base</p>
-                                        <h3>Correo:</h3>
-                                        <p>espacio donde se loggea el correo de la base</p>
-                                        <h3>Cantidad de recetas: </h3>
-                                        <p>un monton</p>
-                                    </div>
-                                </div>
+                            <div class="text-light">
+                                <h3>Nombre:</h3>
+                                <p>espacio donde se loggea el nombre de la base</p>
+                                <h3>Correo:</h3>
+                                <p>{{ user }}</p>
+                                <h3>Cantidad de recetas: </h3>
+                                <p>{{ recipestoshow.length }}</p>
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </section>
             <!-- sección imagen/texto   -->
         </header>
 
-        <!----\ Recetas coleccionadas \---->
         <section>
-            <!--Filtros-->
-            <section>
-                <div class="box-centered">
-                    <div class="d-inline-block box-style content mt-4 w-75">
-                        <!-- Comienso de los filtros -->
-                        <filters></filters>
-                        <!-- Fin de los filtros -->
-                    </div>
-                </div>
-            </section>
-            <!--Fin de filtros-->
+            <!-- Modal -->
+            <div>
+                <recipe-details :image="recipe.image" :name="recipe.name" :category="recipe.category"
+                    :time="recipe.time" :totaltime="recipe.totaltime" :level="recipe.level"
+                    :ingredients="recipe.ingredients" :instructions="recipe.instructions">
+                </recipe-details>
+            </div>
+            <!-- Fin modal -->
 
-            <section>
-                <div class="d-flex align-content-center justify-content-center mb-4 mt-1">
-                    <div class="bg-black rounded-4 bg-opacity-75 w-75 p-3">
+            <!----\ Recetas coleccionadas \---->
+            <div class="w-100 d-flex justify-content-center mt-4 mb-3">
+                <div class="w-95">
+                    <div class="bg-black bg-opacity-50 rounded-4 p-4">
                         <div class="text-center p-2">
                             <div class="d-inline-block border-5 border-bottom border-top mb-2">
                                 <h2 class="text-white m-0 p-1">Tus <span class="text-danger fw-bold">recetas</span>
                                     coleccionadas</h2>
                             </div>
                         </div>
-                        <div
-                            class="d-flex content p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
-                            <div class="container">
-                                <div class="d-flex align-content-center justify-content-center">
-                                    <div class="d-flex p-2">
-                                        <!-- Inicio de cards -->
-                                        <div v-for="i in 4">
-                                            <recipe-card v-on:recipedetails="onClickRecipeDetails"></recipe-card>
-                                        </div>
-                                        <!-- Fin de cards -->
-                                    </div>
 
-                                    <!-- Modal -->
-                                    <recipe-details></recipe-details>
-                                    <!-- Fin modal -->
+                        <div class="mt-3 bg-black rounded-4 bg-opacity-50">
+                            <!-- Inicio de swiper -->
+                            <div class="slide-container swiper">
+                                <div class="slide-content">
+                                    <div class="card-wrapper swiper-wrapper p-3">
+                                        <!-- Card -->
+                                        <div v-for="(item, index) in favorites" class="swiper-slide">
+                                            <recipe-card 
+                                                :image="item.image" 
+                                                :category="item.category" 
+                                                :name="item.name"
+                                                :description="item.description" 
+                                                :time="item.time" 
+                                                :level="item.level"
+                                                :likes="(item.likes*2)-index" 
+                                                :index="item.id"
+                                                v-on:recipedetails="onClickRecipeDetails">
+                                            </recipe-card>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                </div>
+                                <div class="">
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="m-2 d-flex justify-content-end">
-                            <a class="btn-style" type="submit" href="/dev/scss/pages/all_recipes.html">Ver todas las
-                                recetas</a>
+                            <!-- Fin de swiper -->
                         </div>
                     </div>
                 </div>
-            </section>
-        </section>
-        <!----\ Recetas coleccionadas \---->
+            </div>
+            <!----\ Recetas coleccionadas \---->
 
-        <!----/ Recetas del usuario /---->
-        <section>
-            <section>
-                <!--Filtros-->
-                <section>
-                    <div class="d-flex align-content-center justify-content-center">
-                        <div class="d-inline-block box-style content mt-4 w-75">
-                            <!-- Comienso de los filtros -->
-                            <filters></filters>
-                            <!-- Fin de los filtros -->
+            <!----/ Recetas del usuario /---->
+            <div class="w-100 d-flex justify-content-center mb-4">
+                <div class="w-95 bg-black rounded-4 bg-opacity-75 p-3">
+                    <div class="text-center p-2 mb-3">
+                        <div class="d-inline-block border-5 border-bottom border-top mb-2">
+                            <h2 class="text-white m-0 p-1">Todas <span class="text-danger fw-bold">tus</span>
+                                recetas
+                            </h2>
                         </div>
                     </div>
-                </section>
-                <!--Fin de filtros-->
 
-                <section>
-                    <div class="d-flex align-content-center justify-content-center mb-4 mt-1">
-                        <div class="bg-black rounded-4 bg-opacity-75 w-75 p-3">
-                            <div class="text-center p-2">
-                                <div class="d-inline-block border-5 border-bottom border-top mb-2">
-                                    <h2 class="text-white m-0 p-1">Todas <span class="text-danger fw-bold">tus</span>
-                                        recetas</h2>
-                                </div>
-                            </div>
-                            <div
-                                class="d-flex content p-2 bg-black rounded-4 bg-opacity-50 align-content-center justify-content-center">
-                                <div class="container">
-                                    <div class="d-flex align-content-center justify-content-center">
-                                        <div class="d-flex p-2">
-                                            <!-- Inicio de cards -->
-                                            <div v-for="i in 4">
-                                                <recipe-card v-on:recipedetails="onClickRecipeDetails"></recipe-card>
-                                            </div>
-                                            <!-- Fin de cards -->
+                    <div class="p-2 bg-black rounded-4 bg-opacity-50">
+                        <div class="container">
+                            <div class="d-flex align-content-center justify-content-center">
+                                <div class="d-flex justify-content-center p-2">
+                                    <div class="w-100 row">
+                                        <!-- Card -->
+                                        <div v-for="(item, index) in recipestoshow" class="card p-1 col-md-3 mb-2">
+                                            <recipe-card-user :image="item.image" :category="item.category" :name="item.name"
+                                                :description="item.description" :time="item.time" :level="item.level"
+                                                :likes="item.likes" :index="item.id"
+                                                v-on:recipedetails="onClickRecipeDetails">
+                                            </recipe-card-user>
                                         </div>
-
-                                        <!-- Modal -->
-                                        <recipe-details></recipe-details>
-                                        <!-- Fin modal -->
+                                        <!-- Card -->
                                     </div>
                                 </div>
                             </div>
-                            <div class="m-2 d-flex justify-content-end">
-                                <a class="btn-style" type="submit" href="/dev/scss/pages/all_recipes.html">Ver todas las
-                                    recetas</a>
-                            </div>
                         </div>
                     </div>
-                </section>
-            </section>
+                </div>
+            </div>
+            <!----/ Recetas del usuario /---->
+
         </section>
-        <!----/ Recetas del usuario /---->
 
         <footer-page></footer-page>
     </section>
@@ -189,21 +160,29 @@
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+    <!-- Axios API -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <!-- Main.js -->
     <script src="/dist/js/main.js"></script>
 
     <!-- Components -->
     <script src="/dist/js/components/Nav.js"></script>
     <script src="/dist/js/components/Footer.js"></script>
-    <script src="/dist/js/components/filters.js"></script>
     <script src="/dist/js/components/RecipeCard.js"></script>
     <script src="/dist/js/components/AccessButton.js"></script>
     <script src="/dist/js/components/RecipeDetails.js"></script>
+    <script src="/dist/js/components/RecipeCardUser.js"></script>
     <script src="/dist/js/components/ProfileBuntton.js"></script>
+    <script src="/dist/js/components/RecipeCategoryButton.js"></script>
 
     <script>
         const mountedApp = app.mount("#app");
     </script>
+
+    <!-- swiper -->
+    <script src="/dist/js/swipper/swiper-bundle.js"></script>
+    <script src="/dist/js/swipper/script.js"></script>
 </body>
 
 </html>

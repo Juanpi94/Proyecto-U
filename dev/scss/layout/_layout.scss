@@ -29,6 +29,16 @@
     }
 }
 
+.reaction-icon{
+    color: v.$clr-white;
+    font-size: 2rem;
+
+    &:hover{
+        color: v.$clr-black;
+        transform: scale(1.2);
+    }
+}
+
 .login-title {
     font-family: v.$font-primary;
 }

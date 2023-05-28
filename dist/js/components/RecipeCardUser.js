@@ -1,4 +1,4 @@
-app.component('recipe-card', {
+app.component('recipe-card-user', {
     props: {
         image:{
             type: String        
@@ -37,14 +37,6 @@ app.component('recipe-card', {
         }
     },
     methods: {
-        onClickLike(){
-            //this.$emit('recipelike', this.index);
-            this.addLikes++;
-        },
-        onClickUnLike(){
-            //this.$emit('recipeunlike', this.index);
-            if(this.addLikes > 0) this.addLikes--;
-        },
         onClickViewRecipe(){
             this.$emit('recipedetails', this.index);
             //this.$test.emit('foo', this.name);
@@ -65,7 +57,7 @@ app.component('recipe-card', {
                 <img v-bind:src="image" class="card-img-top img-fluid" alt="image">
             </div>
             <div class="card-body box-gray">
-                <div class="row text-center">
+                <div class="row justify-content-evenly text-center">
                     <div class="w-50">
                         <p class="m-0 p-0 fw-bold">Level: </p>
                         <p>{{ level }}</p>
@@ -76,18 +68,16 @@ app.component('recipe-card', {
                     </div>
                 </div>
                 <p>{{ description }}</p>
-                
-                <div class="m-1 w-50">
-                    <p>Total likes: {{ addLikes }}</p>
+
+                <div class="m-1 w-100">
+                    <p class="fw-light">Total de likes: {{ addLikes }}</p>
                 </div>
             </div>
             <div class="card-footer box-orange d-flex justify-content-end">
                 <!-- Button trigger modal -->
-                <div class="content justify-content-around">
-                        <div class="d-flex align-items-center">
-                            <i class="bi bi-hand-thumbs-up-fill me-3 reaction-icon" v-on:click = "onClickLike()"></i>
-                            <i class="bi bi-hand-thumbs-down-fill reaction-icon" v-on:click = "onClickUnLike()"></i>
-                        </div>
+                <div class="content box-centered">
+                    <div class="d-flex w-100 justify-content-between">
+                        <i class="bi bi-trash-fill reaction-icon"></i>
                         <button type="button" class="btn-style" 
                             v-on:click="onClickViewRecipe()"
                             data-bs-toggle="modal" 

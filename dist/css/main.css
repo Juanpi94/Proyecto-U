@@ -111,6 +111,16 @@ textarea {
   background-color: transparent;
 }
 
+.reaction-icon {
+  color: hsl(0deg, 0%, 100%);
+  font-size: 2rem;
+}
+.reaction-icon:hover {
+  color: hsl(0deg, 0%, 0%);
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
 .login-title {
   font-family: "Alegreya Sans";
 }
@@ -280,12 +290,12 @@ textarea {
   -o-object-fit: contain;
      object-fit: contain; /* Control how the image is resized within the container */
 }
+
 @media only screen and (min-width: 520px) {
-  .content-recipe .w-vb {
+  .w-vb {
     width: 50%;
   }
 }
-
 .switch {
   position: relative;
   display: inline-block;
