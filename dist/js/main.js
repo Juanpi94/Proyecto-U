@@ -1,22 +1,24 @@
 const app = Vue.createApp({
     data() {
         return {
-            filas: 15,
+            user: "",
             recipe: {},
+            search: "",
             respaldo: [],
-            favorites: [],
-            isLogin: false,
             loading: true,
+            favorites: [],
+            forgotPass: "",
+            isLogin: false,
+            filtros: false,
+            userrecipes: [],
+            userpassword: "",
             recipestoshow: [],
             categories: [{ id: 1, name: "All" },],
-            userpassword: "",
-            user: "",
-            forgotPass: "",
         }
     },
     mounted: function () {
         this.respaldo = this.recipestoshow;
-
+   
         //Area de login
         if (localStorage.getItem('user') == null) {
             this.user = "";
@@ -32,7 +34,6 @@ const app = Vue.createApp({
 
         if (this.user != null && this.user != "" && this.user != undefined) {
             this.isLogin = true;
-            alert("Bienvenido "+this.user);
         } else {
             this.isLogin = false;
         }
@@ -86,53 +87,27 @@ const app = Vue.createApp({
         //Fin de AXIOS favorites
 
         //AXIOS recipes to show
-        for (let i = 0; i < this.filas * 4; i++) {
-            axios({
-                method: 'get',
-                url: 'https://www.themealdb.com/api/json/v1/1/random.php'
-            }).then((response) => {
-                let items = response.data.meals;
-
-                if (items.length > 0) this.loading = false;
-
-                items.forEach((element, index) => {
-                    if (this.recipestoshow.length > 0) {
-                        let find = element.idMeal
-                        let s = i - 1
-
-                        if (this.recipestoshow[s] == "" || this.recipestoshow[s] == null || this.recipestoshow[s] == undefined) {
-                            console.log("undefined")
-                            s = this.recipestoshow.length - 1
-                            i = this.recipestoshow.length - 1
-                        }
-
-                        if (this.recipestoshow[s].id.lastIndexOf(find) < 0) {
-                            this.recipestoshow.push({
-                                name: element.strMeal,
-                                image: element.strMealThumb,
-                                id: element.idMeal,
-                                level: "Easy",
-                                description: "Se supone va una descripcion que la API no contiene, por lo que se muestera este texto",
-                                category: element.strCategory,
-                                likes: 18,
-                            });
-                        } else {
-                            i = this.recipestoshow.length - 1
-                        }
-                    } else {
-                        this.recipestoshow.push({
-                            name: element.strMeal,
-                            image: element.strMealThumb,
-                            id: element.idMeal,
-                            level: "Easy",
-                            description: "Se supone va una descripcion que la API no contiene, por lo que se muestera este texto",
-                            category: element.strCategory,
-                            likes: 18,
-                        });
-                    }
-                });
-            }).catch(error => console.log(error))
-        }
+        axios({
+            method: 'get',
+            url: 'https://www.themealdb.com/api/json/v1/1/search.php?f=b'
+        }).then((response) => {
+            let items = response.data.meals;
+            if (items.length > 0) this.loading = false;
+            items.forEach((element, index) => {
+                
+                if (this.recipestoshow.length < 40) {
+                    this.recipestoshow.push({
+                        name: element.strMeal,
+                        image: element.strMealThumb,
+                        id: element.idMeal,
+                        level: "Easy",
+                        description: "Se supone va una descripcion que la API no contiene, por lo que se muestera este texto",
+                        category: element.strCategory,
+                        likes: 18,
+                    });
+                }
+            });
+        }).catch(error => console.log(error))
         //Fin de AXIOS recipes to show
 
         //AXIOS para las categorias
@@ -208,6 +183,7 @@ const app = Vue.createApp({
         onClickLogIn() {
             localStorage.setItem("user", this.user);
             localStorage.setItem("userpassword", this.userpassword);
+            alert("Bienvenido "+this.user);
         },
 
         onClickLogOut() {
@@ -227,11 +203,47 @@ const app = Vue.createApp({
 
         onClickAddRecipe(){
             if (this.isLogin == true) {
-                
+                window.location.href = '/dev/scss/pages/add_recipe.html'
             }else{
                 alert("Debes iniciar sesion para agregar una receta");
                 window.location.href = '/dev/scss/pages/login.html'
             }
         },
+
+        onClickSAveRecipe(){
+            alert("Receta agregada con exito")
+            window.location.href = '/dist/index.html'
+        },
+
+        onClickSearch() {
+            localStorage.setItem("search", this.search);
+        
+            if (localStorage.getItem("search") == "") {
+                this.recipestoshow = this.respaldo;
+            }else{
+                this.search = localStorage.getItem("search");
+
+                axios({
+                    method: 'get',
+                    url: 'https://www.themealdb.com/api/json/v1/1/search.php?s='+this.search
+                }).then((response) => {
+                    let items = response.data.meals;
+    
+                    this.recipestoshow = [];
+                    items.forEach((element) => {
+                        this.recipestoshow.push({
+                            likes: 18,
+                            level: "Easy",
+                            id: element.idMeal,
+                            name: element.strMeal,
+                            image: element.strMealThumb,
+                            category: element.category,
+                            description: "Se supone va una descripcion que la API no contiene, por lo que se muestera este texto",
+                        });
+                    });
+                }).catch(error => console.log(error))
+            }
+            
+        }
     },
 })

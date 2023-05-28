@@ -7,11 +7,14 @@
 
 //Layout
 @use 'layout/layout';
+@use 'layout/query';
 
 //Themes
 @use 'themes/boxThemes';
+@use 'themes/addRecipe';
 
 //Components
+@use 'components/switch';
 @use 'components/buttons';
 @use 'components/menuprofile';
 

@@ -1,0 +1,29 @@
+@use "../utils/vars" as v;
+
+@media screen and (min-width: 520px) {
+    .text {
+        width: 50%;
+    }
+
+    .div-input {
+        width: 40%;
+    }
+
+    .div-button {
+        width: 10%;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .content {
+        display: block;
+    }
+
+    .w-vb{
+        width: 100%;
+    }
+
+    .modal-img {
+        width: 95%;
+    }
+}

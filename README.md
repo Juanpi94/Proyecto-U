@@ -93,8 +93,14 @@ Segunda parte:{
         Modificaciones menores en componentes que afectaban al rendimineto de a pagina
     
     }
+
     Sexto-commit{
-        Se agregaron las funciones de login y recuperar contraseña, ademas del logout que se verifica si existem¿n datos
-        en cache para mantener la session activa
+        Se agregaron las funciones de login y recuperar contraseña, ademas del 
+        logout que se verifica si existen datos en cache para mantener la sesion activa
+    }
+
+    Septimo-commit{
+        Se agrego la pagina de agregar receta ademas de sus funciones, 
+        aunque esta no almacena las recetas en ningun lugar por ahora
     }
 }

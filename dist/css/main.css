@@ -71,8 +71,12 @@ footer {
   font-weight: 400;
 }
 
+textarea {
+  resize: none;
+}
+
 .footer-icon {
-  border: solid 4px hsl(0deg, 4%, 10%);
+  border: solid 4px hsl(0deg, 0%, 0%);
   border-radius: 2rem;
   height: 3.5rem;
   width: 3.5rem;
@@ -91,7 +95,7 @@ footer {
 }
 .footer-icon:hover {
   border-color: hsl(0deg, 0%, 100%);
-  background-color: hsl(0deg, 4%, 10%);
+  background-color: hsl(0deg, 0%, 0%);
   -webkit-transition: 0.5;
   transition: 0.5;
 }
@@ -155,9 +159,45 @@ footer {
   width: 95%;
 }
 
+.container-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+}
+
+.text, .div-input, .div-button {
+  width: 100%;
+}
+
+.c-input {
+  text-align: center;
+  width: 80%;
+}
+
+.c-button {
+  width: 80%;
+}
+
+@media screen and (min-width: 520px) {
+  .text {
+    width: 50%;
+  }
+  .div-input {
+    width: 40%;
+  }
+  .div-button {
+    width: 10%;
+  }
+}
 @media only screen and (max-width: 520px) {
   .content {
     display: block;
+  }
+  .w-vb {
+    width: 100%;
   }
   .modal-img {
     width: 95%;
@@ -219,6 +259,86 @@ footer {
   height: 100%;
 }
 
+.w-vb {
+  width: 100%;
+}
+
+.center-area {
+  text-align: center;
+}
+.center-area div {
+  margin: 0 auto;
+}
+
+.content-recipe {
+  width: 90%; /* Set the width of the container */
+  height: 300px; /* Set the height of the container */
+}
+.content-recipe img {
+  max-width: 100%; /* Set the maximum width of the image to 100% */
+  max-height: 100%; /* Set the maximum height of the image to 100% */
+  -o-object-fit: contain;
+     object-fit: contain; /* Control how the image is resized within the container */
+}
+@media only screen and (min-width: 520px) {
+  .content-recipe .w-vb {
+    width: 50%;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(34deg, 79%, 81%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 8px;
+  bottom: 4px;
+  background-color: hsl(0deg, 0%, 0%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: hsl(34deg, 95%, 40%);
+}
+
+input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #0da132;
+          box-shadow: 0 0 1px #0da132;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
 .btn-style {
   display: inline-block;
   padding: 0.5rem;
@@ -226,12 +346,12 @@ footer {
   color: hsl(30deg, 39%, 91%);
   background-color: hsl(32deg, 80%, 48%);
   border-radius: 0.9rem;
-  border: solid hsl(0deg, 4%, 10%) 0.25rem;
+  border: solid hsl(0deg, 0%, 0%) 0.25rem;
   -webkit-transition: 0.3s ease all;
   transition: 0.3s ease all;
 }
 .btn-style:hover {
-  background-color: hsl(0deg, 4%, 10%);
+  background-color: hsl(0deg, 0%, 0%);
   color: hsl(32deg, 80%, 48%);
   border: solid hsl(0deg, 0%, 100%) 0.25rem;
 }
@@ -260,7 +380,7 @@ footer {
   }
 }
 .menu-area {
-  border: solid 4px hsl(0deg, 4%, 10%) !important;
+  border: solid 4px hsl(0deg, 0%, 0%) !important;
   background-color: hsl(32deg, 80%, 48%) !important;
 }
 .menu-area ul {
@@ -276,14 +396,14 @@ footer {
 .menu-area ul li a {
   display: block;
   font-size: 1rem;
-  color: hsl(0deg, 4%, 10%);
+  color: hsl(0deg, 0%, 0%);
   content: 0 0 0 4rem;
   text-decoration: none;
   font-weight: 800;
 }
 .menu-area ul li a:hover {
   border-radius: 3rem;
-  background-color: hsl(0deg, 4%, 10%);
+  background-color: hsl(0deg, 0%, 0%);
   color: hsl(0deg, 0%, 100%);
 }
 .menu-area ul li a:hover i {
@@ -295,7 +415,7 @@ footer {
   padding: 0.5rem;
   border-radius: 100%;
   color: rgba(46, 46, 46, 0.815);
-  border: solid 1px hsl(0deg, 4%, 10%);
+  border: solid 1px hsl(0deg, 0%, 0%);
 }
 
 /*!
