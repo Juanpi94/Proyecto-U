@@ -1,5 +1,8 @@
 app.component('recipe-details', {
     props: {
+        id:{
+            type:Number
+        },
         name:{
             type:String
         },
@@ -7,7 +10,10 @@ app.component('recipe-details', {
             type:String
         },
         ingredients:{
-            type:String
+            type:Array
+        },
+        related:{
+            type:Array
         },
         instructions:{
             type:String
@@ -16,7 +22,11 @@ app.component('recipe-details', {
             type: String,
             default: "Recipe category"
         },
-        time:{
+        cookingtime:{
+            type: String,
+            default: "0min"
+        },
+        preparationtime:{
             type: String,
             default: "0min"
         },
@@ -27,11 +37,18 @@ app.component('recipe-details', {
         level:{
             type: String,
             default: "Recipe level"
-        },
+        }
+    },
+    methods: {
+        
     },
     template:
-        /*html*/
+    /*html*/
         `
+        <!-- Modal -->
+        
+        <!-- Fin modal -->
+
         <!-- Modal -->
         <div class="modal modal-lg fade" 
             id="RecipeDetails" 
@@ -54,30 +71,56 @@ app.component('recipe-details', {
                                 <div
                                     class="box-centered m-2 p-2 bg-black rounded-4 bg-opacity-50">
                                     <div class="p-2 text-white w-100">
-                                        <h3>Nombre de la receta:</h3>
+                                        <h3>Recipe name:</h3>
                                         <h4>{{ name }}</h4>
-                                        <h3>Dificultad:</h3>
-                                        <p>{{ level }}</p>
-                                        <div class="content box-centered">
-                                            <div class="m-1 w-50">
-                                                <h3>Tiempo :</h3>
-                                                <p>{{ time }}</p>
+                                        <div class="d-flex justify-content-center">
+                                            <h5 class="mx-1">Level:</h5>
+                                            <p>{{ level }}</p>
+                                        </div>
+                                        <div class="">
+                                            <div class="d-flex justify-content-center">
+                                                <p class="mx-1">Cooking time:</p>
+                                                <p>{{ cookingtime }}</p>
                                             </div>
-                                            <div class="m-1 w-50">
-                                                <h3>Tiempo total:</h3>
+                                            <div class="d-flex justify-content-center">
+                                                <p class="mx-1">Preparation time:</p>
+                                                <p>{{ preparationtime }}</p>
+                                            </div>
+                                            <div class="d-flex justify-content-center">
+                                                <p class="mx-1">Total time:</p>
                                                 <p>{{ totaltime }}</p>
                                             </div>
                                         </div>
-                                        <h5><span class="fw-bold">Categoria: </span>{{ category }}</h5>
+                                        <h6><span class="fw-bold">Category: </span>{{ category }}</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="d-flex m-2 p-2 bg-black rounded-4 bg-opacity-50">
                                 <div class="p-2 text-white">
-                                    <h4 class="fw-bold">ingredientes de la receta</h4>
-                                    <p>{{ ingredients }}</p>
-                                    <h4 class="fw-bold">Descripcion de la receta</h4>
-                                    <p>{{ instructions }}</p>
+                                    <h4 class="fw-bold">Ingredients:</h4>
+                                    <ul>
+                                        <li v-for="ingredient in ingredients">
+                                          {{ ingredient.amount }} {{ ingredient.measurement_unit }} {{ ingredient.description }}
+                                        </li> 
+                                    </ul>
+                                    <h4 class="fw-bold">Steps to prepare:</h4>
+                                    <p v-for="instruction in instructions" class="m-0">
+                                        {{ instruction }}.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="d-flex m-2 p-2 bg-black rounded-4 bg-opacity-50">
+                                <div class="p-2 text-white">
+                                    <h4 class="fw-bold">Related Recipe:</h4>
+                                    <div class="d-flex justify-content-center">
+                                        <button v-for="recipe in related" 
+                                            type="button" 
+                                            class="btn-style mx-1" >
+                                           {{ recipe.name }} 
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </section>

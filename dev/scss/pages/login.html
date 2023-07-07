@@ -18,7 +18,7 @@
 </head>
 
 <body>
-    <section id="app">
+    <section class="vh-screen" id="app">
         <header>
             <nav>
                 <nav-area></nav-area>
@@ -39,12 +39,12 @@
                     <div>
                         <form @submit.prevent="onClickLogIn">
                             <div class="mb-3">
-                                <label for="user" class="form-label fs-4">Email</label>
-                                <input v-model="user" class="form-control" type="email" id="user" required>
+                                <label class="form-label fs-4">Email</label>
+                                <input v-model="userLogEmail" class="form-control" type="email" required>
                             </div>
                             <div class="mb-3">
-                                <label for="userpassword" class="form-label fw-bold fs-4">Contraseña</label>
-                                <input v-model="userpassword" class="form-control" type="password" id="userpassword" required>
+                                <label class="form-label fw-bold fs-4">Contraseña</label>
+                                <input v-model="userLogPassword" class="form-control" type="password" required>
                             </div>
                             <div class="container pb-3">
                                 <div class="row">
@@ -57,14 +57,14 @@
                                 </div>
                             </div>
                             <div class="text-center w-100">
-                                <button class="btn-style" @click="redirigirLogIn" type="submit">LogIn</button>
+                                <button class="btn-style" type="submit">LogIn</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
-
+        
         <footer-page></footer-page>
     </section>
 
@@ -79,16 +79,15 @@
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+    <!-- Axios API -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <!-- Main.js -->
     <script src="/dist/js/main.js"></script>
 
     <!-- Components -->
     <script src="/dist/js/components/Nav.js"></script>
     <script src="/dist/js/components/Footer.js"></script>
-    <script src="/dist/js/components/RecipeCard.js"></script>
-    <script src="/dist/js/components/AccessButton.js"></script>
-    <script src="/dist/js/components/RecipeDetails.js"></script>
-    <script src="/dist/js/components/ProfileBuntton.js"></script>
 
     <script>
         const mountedApp = app.mount("#app");

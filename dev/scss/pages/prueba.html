@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Archivos Css-->
+    <link rel="stylesheet" href="/dist/css/main.css">
+</head>
+
+<body>
+    <section id="sendrecipe" style="color: white;">
+        <div>
+            <form @submit.prevent="onSubmit">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" v-model="name">
+
+                <label for="option1">Opción 1:</label>
+                <select id="option1" v-model="option1">
+                    <option value="opcion1">Opción 1</option>
+                    <option value="opcion2">Opción 2</option>
+                    <option value="opcion3">Opción 3</option>
+                </select>
+
+                <label for="option2">Opción 2:</label>
+                <select id="option2" v-model="option2">
+                    <option value="opcion1">Opción 1</option>
+                    <option value="opcion2">Opción 2</option>
+                    <option value="opcion3">Opción 3</option>
+                </select>
+
+                <label for="image">Imagen:</label>
+                <input type="file" id="image" @change="onImageChange">
+
+                <label for="time1">Hora 1:</label>
+                <input type="time" id="time1" v-model="time1">
+
+                <label for="time2">Hora 2:</label>
+                <input type="time" id="time2" v-model="time2">
+
+                <label for="comment">Comentario:</label>
+                <textarea id="comment" v-model="comment"></textarea>
+
+                <label for="description">Descripción:</label>
+                <textarea id="description" v-model="description"></textarea>
+
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+
+
+        <div>
+            <input type="file" @change="onFileChange">
+            <button @click="saveImage">Guardar imagen</button>
+        </div>
+
+        <div>
+            <input type="text" v-model="folderName">
+            <button @click="createFolder">Crear carpeta</button>
+        </div>
+    </section>
+
+    <!-- CSV -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+    <!-- XSLX -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="/dist/js/prueba.js"></script>
+
+    <script>
+        const mountedApp = app.mount("#sendrecipe");
+    </script>
+</body>
+
+</html>

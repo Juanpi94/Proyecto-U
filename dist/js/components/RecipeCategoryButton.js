@@ -1,13 +1,12 @@
 app.component('recipe-category-button', {
     props:{
-        name:{
-            type:String
-        }
+        name:{ type:String },
+        id:{ type:Number }
     },
     methods:{
         onClickCategoryButton(){
             //console.log(this.name);
-            this.$emit('selectedcategory', this.name);
+            this.$emit('selectedcategory', this.id);
         }
     },
     template: 

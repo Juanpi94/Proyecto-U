@@ -65,7 +65,7 @@
                         <div class="m-1 rounded-4 p-3 d-block bg-black bg-opacity-50 box-centered w-vb">
 
                             <label for="recipename" class="form-label text-white fs-4">Nombre de la receta</label>
-                            <input v-model="recipename" class="form-control w-vb text-center" type="text" id="recipename" required>
+                            <input v-model="recipename" class="w-90 text-center btn-style" type="text" id="recipename" required>
 
                             <div class="d-flex">
                                 <div class="p-1 pt-3 w-100">
@@ -80,11 +80,9 @@
                                 <div class="p-1 pt-3 w-100">
                                     <div class="col-md ">
                                         <h4 for="dificultad" class="form-label text-white"> Dificultad</h4>
-                                        <select class="text-center fw-bold w-75 btn-style" name="categoria"
-                                            aria-label="categoria">
-                                            <option value="Easy" selected>Fácil</option>
-                                            <option value="desayuno">Medio</option>
-                                            <option value="bebidas">Difícil</option>
+                                        <select v-model="selectedCategory" class="text-center fw-bold w-75 btn-style">
+                                            <option v-for="category in this.categories" :value="category.name">{{
+                                                category.name }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -92,11 +90,11 @@
                             <div class="d-flex">
                                 <div class="p-1 pt-3 w-100">
                                     <h4 for="tiempo" class="form-label text-white">Tiempo:</h4>
-                                    <input class="btn-style w-75 text-center fw-bold fs-5" type="time">
+                                    <input class="btn-style w-75 text-center fw-bold fs-5" type="text">
                                 </div>
                                 <div class="p-1 pt-3 w-100">
                                     <h4 for="tiempoTotal" class="form-label text-white">Tiempo total:</h4>
-                                    <input class="btn-style w-75 text-center fw-bold fs-5" type="time">
+                                    <input class="btn-style w-75 text-center fw-bold fs-5" type="text">
                                 </div>
                             </div>
                         </div>

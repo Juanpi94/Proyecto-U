@@ -2,10 +2,10 @@ Proyecto-U
 
 Nombre: Gusticos
 
-Este es un proyecto realizado por un el estudiante Juan Gabriel Camacho Sánchez carne B91482 de la carrera de 
+Este es un proyecto realizado por un el estudiante Juan Gabriel Camacho Sánchez carne B91482 de la carrera de
 Informatica y tecnologia Multimedia de la Universidad de Costa Rica
 
-En el que el proyecto trata de montar una pagina web de recetas con funciones para almacenar y mostrar información 
+En el que el proyecto trata de montar una pagina web de recetas con funciones para almacenar y mostrar información
 de la base de datos
 
 a continuacion un resumen de los commits echos durante el proceso
@@ -45,7 +45,7 @@ Primera parte:{
     }
 
     Octavo-commit{
-        Se agrego el area de perfil de usuario con su respectiva responsividad, ademas de agregar dos cards en cada area para 
+        Se agrego el area de perfil de usuario con su respectiva responsividad, ademas de agregar dos cards en cada area para
         generar la visualizacion de estas a futuro.
     }
 
@@ -91,22 +91,34 @@ Segunda parte:{
 
     Quinto-commit{
         Modificaciones menores en componentes que afectaban al rendimineto de a pagina
-    
+
     }
 
     Sexto-commit{
-        Se agregaron las funciones de login y recuperar contraseña, ademas del 
+        Se agregaron las funciones de login y recuperar contraseña, ademas del
         logout que se verifica si existen datos en cache para mantener la sesion activa
     }
 
     Septimo-commit{
-        Se agrego la pagina de agregar receta ademas de sus funciones, 
+        Se agrego la pagina de agregar receta ademas de sus funciones,
         aunque esta no almacena las recetas en ningun lugar por ahora
     }
 
     Octavo-commit{
-        Se agregó todo lo relacionado con el perfil de usuario ademas de un card para las recetas personalidas 
+        Se agregó todo lo relacionado con el perfil de usuario ademas de un card para las recetas personalidas
         con el area de eliminar receta
         Ademas se agrego la funcion de likes y dislikes de manera individual por receta traida de la API
     }
+}
+
+Entrega Final:{
+
+    Primer-commit{
+
+    Se le dio funcionalidad casi total a toda la pagina, faltó el de eliminar like y
+
+    el logout segun diseño de la base de datos
+
+    }
+
 }

@@ -14,9 +14,8 @@
     <!-- Fuentes Alegreya Sans para titulos, subtitulos y botones, Roboto Regular para textos largos-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -26,9 +25,7 @@
             <!-- Barra de navegacion -->
             <section>
                 <nav>
-                    <nav-area 
-                        v-on:onaddrecipes="onClickAddRecipe">
-                    </nav-area>
+                    <nav-area ></nav-area>
 
                     <div class="d-flex">
                         <access-button v-if="!isLogin">
@@ -63,14 +60,18 @@
             <!-- Modal -->
             <div>
                 <recipe-details 
-                    :image="recipe.image" 
+                    :id="recipe.id"
                     :name="recipe.name" 
-                    :category="recipe.category"
-                    :time="recipe.time" 
-                    :totaltime="recipe.totaltime" 
+                    :image="recipe.image" 
                     :level="recipe.level"
+                    :category="recipe.category"
+                    :portions="recipe.portions"
+                    :totaltime="recipe.totaltime" 
+                    :related="recipe.recipeRelated" 
+                    :cookingtime="recipe.cookingtime" 
                     :ingredients="recipe.ingredients" 
-                    :instructions="recipe.instructions">
+                    :instructions="recipe.instructions"
+                    :preparationtime="recipe.preparationtime">
                 </recipe-details>
             </div>
             <!-- Fin modal -->
@@ -83,9 +84,7 @@
                             <div class="d-inline-block border-5 border-bottom border-top mb-2">
                                 <h2 class="text-white m-0 p-1">
                                     Recetas
-                                    <span class="text-danger fw-bold">
-                                        más
-                                    </span>
+                                    <span class="text-danger fw-bold">más</span>
                                     votadas
                                 </h2>
                             </div>
@@ -97,16 +96,20 @@
                                 <div class="slide-content">
                                     <div class="card-wrapper swiper-wrapper p-3">
                                         <!-- Card -->
-                                        <div v-for="(item, index) in favorites" class="swiper-slide">
+                                        <div v-for="item in favorites" class="swiper-slide">
                                             <recipe-card 
-                                                :image="item.image" 
-                                                :category="item.category" 
+                                                :id="item.id"
                                                 :name="item.name"
-                                                :description="item.description" 
                                                 :time="item.time" 
+                                                :image="item.image" 
                                                 :level="item.level"
-                                                :likes="(item.likes*2)-index" 
-                                                :index="item.id"
+                                                :likes="item.likes" 
+                                                :state="item.isinlist"
+                                                :category="item.category" 
+                                                :description="item.description" 
+                                                v-on:recipeaction="onclickAction"
+                                                v-on:saverecipe="onClickSaveRecipe"
+                                                v-on:undorecipe="onClickRemoveRecipe"
                                                 v-on:recipedetails="onClickRecipeDetails">
                                             </recipe-card>
                                         </div>
@@ -128,7 +131,7 @@
             <div class="w-95 d-flex justify-content-end m-1">
                 <!--Cambiar filtros-->
                 <div>
-                    <p class="text-white fw-bold me-2" v-if="filtros">Cambiar a busqueda</p>
+                    <p class="text-white fw-bold me-2" v-if="filtros">Cambiar a búsqueda</p>
                     <p class="text-white fw-bold me-2" v-if="!filtros">Cambiar a filtros</p>
                 </div>
                 <div class="d-block align-items-center">
@@ -158,6 +161,7 @@
                                 <div class="collapse navbar-collapse mt-1 buttons" id="filterLike">
                                     <div v-for="(category, index) in categories" class="d-flex justify-content-center p-1 button">
                                         <recipe-category-button 
+                                            :id="category.id"
                                             :name="category.name"
                                             v-on:selectedcategory="onClickSelectedCategory">
                                         </recipe-category-button>
@@ -201,16 +205,20 @@
                                 <div class="d-flex justify-content-center p-2">
                                     <div class="w-100 row">
                                         <!-- Card -->
-                                        <div v-for="(item, index) in recipestoshow" class="card p-1 col-md-3 mb-2">
+                                        <div v-for="item in recipestoshow" class="p-1 col-md-3 mb-2">
                                             <recipe-card 
-                                                :image="item.image" 
-                                                :category="item.category" 
+                                                :id="item.id"
                                                 :name="item.name"
-                                                :description="item.description" 
                                                 :time="item.time" 
                                                 :level="item.level"
                                                 :likes="item.likes" 
-                                                :index="item.id"
+                                                :image="item.image" 
+                                                :state="item.isinlist"
+                                                :category="item.category" 
+                                                :description="item.description" 
+                                                v-on:recipeaction="onclickAction"
+                                                v-on:saverecipe="onClickSaveRecipe"
+                                                v-on:undorecipe="onClickRemoveRecipe"
                                                 v-on:recipedetails="onClickRecipeDetails">
                                             </recipe-card>
                                         </div>
