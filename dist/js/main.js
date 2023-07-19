@@ -30,7 +30,7 @@ const app = Vue.createApp({
             categories: [],
             userrecipes: [],
             recipestoshow: [],
-            user_like_list: [],
+            user_liked_list: [],
             user_recipe_list: [],
             countries: ["Afganistán", "Albania", "Alemania", "Andorra", "Angola",
                 "Antigua y Barbuda", "Arabia Saudita", "Argelia", "Argentina",
@@ -68,8 +68,6 @@ const app = Vue.createApp({
         }
     },
     mounted: function () {
-        this.respaldo = this.recipestoshow;
-
         //Area de ususario
             //Area de login
                 this.userid = localStorage.getItem('userid')
@@ -85,6 +83,32 @@ const app = Vue.createApp({
                 }
             //Fin de area de login
 
+            //AXIOS para las recetas likeadas
+                this.user_liked_list = [];
+                if (this.isLogin == true) {
+                    axios({
+                        method: 'get',
+                        url: 'http://localhost/claseinteractivas/public/api/users/likedrecipes/' + this.userid
+                    }).then((response) => {
+                        let items = response.data;
+                        if (items.length > 0) {
+                            items.forEach((element) => {
+                                this.user_liked_list.push({
+                                    name: element.name,
+                                    image: "http://localhost/claseinteractivas/public/storage/imgs/" + element.image,
+                                    id: element.id,
+                                    level: element.level,
+                                    liked: true,
+                                    description: element.description,
+                                    category: element.category,
+                                    likes: element.likes,
+                                });
+                            });
+                        }
+                    }).catch(error => console.log(error))
+                }
+            //Fin de AXIOS para las recetas likeadas
+
             //AXIOS para las recetas coleccionadas
                 this.user_recipe_list = [];
                 if (this.isLogin == true) {
@@ -95,12 +119,15 @@ const app = Vue.createApp({
                         let items = response.data;
                         if (items.length > 0) {
                             items.forEach((element) => {
+                                recipeLiked = this.user_liked_list.some(item => item.id === element.id)
+
                                 this.user_recipe_list.push({
                                     name: element.name,
                                     image: "http://localhost/claseinteractivas/public/storage/imgs/" + element.image,
                                     id: element.id,
                                     level: element.level,
-                                    isinlist: true,
+                                    saved: true,
+                                    liked: recipeLiked,
                                     description: element.description,
                                     category: element.category,
                                     likes: element.likes,
@@ -110,31 +137,6 @@ const app = Vue.createApp({
                     }).catch(error => console.log(error))
                 }
             //Fin de AXIOS para las recetas coleccionadas
-
-            //AXIOS para las recetas likeadas   (Esto aun no funka)
-                /*this.user_like_list = [];
-                if (this.isLogin == true) {
-                    axios({
-                        method: 'get',
-                        url: 'http://localhost/claseinteractivas/public/api/users/savedrecipes/' + this.userid
-                    }).then((response) => {
-                        let items = response.data;
-                        if (items.length > 0) {
-                            items.forEach((element) => {
-                                this.user_recipe_list.push({
-                                    name: element.name,
-                                    image: "http://localhost/claseinteractivas/public/storage/imgs/" + element.image,
-                                    id: element.id,
-                                    level: element.level,
-                                    description: element.description,
-                                    category: element.category,
-                                    likes: element.likes,
-                                });
-                            });
-                        }
-                    }).catch(error => console.log(error))
-                }*/
-            //Fin de AXIOS para las recetas likeadas
         //Fin de Area de ususario
 
         //AXIOS Top10
@@ -146,6 +148,7 @@ const app = Vue.createApp({
 
             items.forEach((element) => {
                 recipeAdded = this.user_recipe_list.some(item => item.id === element.id)
+                recipeLiked = this.user_liked_list.some(item => item.id === element.id)
 
                 let dataList = element.description.split(" ");
                 let textShort = dataList.slice(0, 30).join(" ");
@@ -159,8 +162,9 @@ const app = Vue.createApp({
                     image: "http://localhost/claseinteractivas/public/storage/imgs/" + element.image,
                     id: element.id,
                     level: element.level,
+                    saved: recipeAdded,
+                    liked: recipeLiked,
                     description: description,
-                    isinlist: recipeAdded,
                     category: element.category,
                     likes: element.likes,
                 });
@@ -178,12 +182,15 @@ const app = Vue.createApp({
 
             items.forEach((element) => {
                 recipeAdded = this.user_recipe_list.some(item => item.id === element.id)
+                recipeLiked = this.user_liked_list.some(item => item.id === element.id)
+                
                 this.recipestoshow.push({
                     name: element.name,
                     image: "http://localhost/claseinteractivas/public/storage/imgs/" + element.image,
                     id: element.id,
                     level: element.level,
-                    isinlist: recipeAdded,
+                    saved: recipeAdded,
+                    liked: recipeLiked,
                     description: element.description,
                     category: element.category,
                     likes: element.likes,
@@ -191,6 +198,7 @@ const app = Vue.createApp({
             });
         }).catch(error => console.log(error))
         //Fin de AXIOS recipes to show
+        this.respaldo = this.recipestoshow;
 
         //AXIOS para las categorias
             axios({
@@ -251,11 +259,16 @@ const app = Vue.createApp({
 
                     this.recipestoshow = [];
                     items.forEach((element) => {
+                        recipeAdded = this.user_recipe_list.some(item => item.id === element.id)
+                        recipeLiked = this.user_liked_list.some(item => item.id === element.id)
+
                         this.recipestoshow.push({
                             name: element.name,
                             image: "http://localhost/claseinteractivas/public/storage/imgs/" + element.image,
                             id: element.id,
                             level: element.level,
+                            saved: recipeAdded,
+                            liked: recipeLiked,
                             description: element.description,
                             category: element.category,
                             likes: element.likes,
@@ -278,21 +291,7 @@ const app = Vue.createApp({
 
             localStorage.clear()
         },
-
-        onclickAction(id) {
-            if (this.isLogin == true) {
-                axios({
-                    method: 'get',
-                    url: 'http://localhost/claseinteractivas/public/api/users/likes/'+this.userid+'/'+id
-                }).then((response) => {
-                    //console.log(response.data)
-                }).catch(error => console.log(error))
-            } else  {
-                alert("Debes iniciar sesion para votar por una receta")
-                window.location.href = '/dev/scss/pages/login.html'
-            }
-        },
-
+        
         onClickRegister() {
             const data = {
                 regName: this.userRegName,
@@ -321,6 +320,20 @@ const app = Vue.createApp({
             this.forgotPass = localStorage.removeItem('forgotPass')
         },
 
+        onclickActionLike(id) {
+            if (this.isLogin == true) {
+                axios({
+                    method: 'get',
+                    url: 'http://localhost/claseinteractivas/public/api/users/likes/'+this.userid+'/'+id
+                }).then((response) => {
+                    console.log(response.data)
+                }).catch(error => console.log(error))
+            } else  {
+                alert("Debes iniciar sesion para votar por una receta")
+                window.location.href = '/dev/scss/pages/login.html'
+            }
+        },
+
         onClickSaveRecipe(id) {
             if (this.isLogin == true) {
                 axios({
@@ -342,9 +355,24 @@ const app = Vue.createApp({
                     url: 'http://localhost/claseinteractivas/public/api/users/removesavedrecipe/'+this.userid+'/'+id
                 }).then((response) => {
                     console.log(response.data)
+                    this.user_recipe_list.splice(id, 1)
                 }).catch(error => console.log(error))
             } else {
                 alert("Debes iniciar sesion para agregar una receta");
+                window.location.href = '/dev/scss/pages/login.html'
+            }
+        },
+
+        onclickActionDisLike(id) {
+            if (this.isLogin == true) {
+                axios({
+                    method: 'get',
+                    url: 'http://localhost/claseinteractivas/public/api/users/removelikedrecipe/'+this.userid+'/'+id
+                }).then((response) => {
+                    console.log(response.data)
+                }).catch(error => console.log(error))
+            } else  {
+                alert("Debes iniciar sesion para votar por una receta")
                 window.location.href = '/dev/scss/pages/login.html'
             }
         },
@@ -386,16 +414,23 @@ const app = Vue.createApp({
 
                     this.recipestoshow = [];
                     items.forEach((element) => {
+                        recipeAdded = this.user_recipe_list.some(item => item.id === element.id)
+                        recipeLiked = this.user_liked_list.some(item => item.id === element.id)
+
                         this.recipestoshow.push({
                             name: element.name,
                             image: "http://localhost/claseinteractivas/public/storage/imgs/" + element.image,
                             id: element.id,
                             level: element.level,
+                            saved: recipeAdded,
+                            liked: recipeLiked,
                             description: element.description,
                             category: element.category,
                             likes: element.likes,
                         });
                     });
+
+                    //console.log(this.recipestoshow)
                 }).catch(error => console.log(error))
             }
         }

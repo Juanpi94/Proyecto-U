@@ -13,7 +13,22 @@
 
 <body>
     <section id="sendrecipe" style="color: white;">
-        <div>
+        <section>
+            <div>
+                <button @click="addItem">Agregar elemento</button>
+                <ul>
+                    <li v-for="(item, index) in items" 
+                        :key="item.id">{{ item.text }} 
+                        <button @click="removeItem(index)">
+                            Eliminar elemento
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <!--<div>
             <form @submit.prevent="onSubmit">
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" v-model="name">
@@ -60,7 +75,8 @@
         <div>
             <input type="text" v-model="folderName">
             <button @click="createFolder">Crear carpeta</button>
-        </div>
+        </div>-->
+        </section>
     </section>
 
     <!-- CSV -->
@@ -77,6 +93,7 @@
     <script>
         const mountedApp = app.mount("#sendrecipe");
     </script>
+
 </body>
 
 </html>

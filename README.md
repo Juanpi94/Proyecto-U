@@ -122,3 +122,17 @@ Entrega Final:{
     }
 
 }
+
+Progreso personal:{
+
+    Primer-commit{
+
+    Se agregaron los funciones de ver recetas que le dieron like y ademas de agregar la funcion del dislike
+
+    y que desapareciera de la lista
+
+    Ademas se agregaron las funciones a la api que la subire de manera independiente en otro proyecto
+
+    }
+
+}

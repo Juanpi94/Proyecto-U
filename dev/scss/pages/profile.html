@@ -7,15 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
 
+    <!--Archivos Css-->
+    <link rel="stylesheet" href="/dist/css/main.css">
+    <link rel="stylesheet" href="/dist/css/swiper-bundle.css">
+
     <!-- Fuentes Alegreya Sans para titulos, subtitulos y botones, Roboto Regular para textos largos-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="/dist/css/main.css">
-    <link rel="stylesheet" href="/dist/css/swiper-bundle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
 </head>
 
 <body>
@@ -41,13 +42,19 @@
                                 <h2 class="text-light">Datos del Usuario</h2>
                                 <hr />
                             </div>
-                            <div class="text-light">
-                                <h3>Nombre:</h3>
-                                <p>{{ username }}</p>
-                                <h3>Correo:</h3>
-                                <p>{{ useremail }}</p>
-                                <h3>Cantidad de recetas almacenadas: </h3>
-                                <p>{{ user_recipe_list.length }}</p>
+                            <div class="d-flex text-light justify-content-between">
+                                <div>
+                                    <h3>Nombre:</h3>
+                                    <p>{{ username }}</p>
+                                    <h3>Correo:</h3>
+                                    <p>{{ useremail }}</p>
+                                </div>
+                                <div>
+                                    <h3>N° de recetas almacenadas: </h3>
+                                    <p>{{ user_recipe_list.length }}</p>
+                                    <h3>N° de recetas likeadas: </h3>
+                                    <p>{{ user_liked_list.length }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -102,13 +109,15 @@
                                                 :image="item.image" 
                                                 :level="item.level"
                                                 :likes="item.likes" 
-                                                :state="item.isinlist"
+                                                :saved="item.saved"
+                                                :liked="item.liked"
                                                 :category="item.category" 
                                                 :description="item.description" 
-                                                v-on:recipeaction="onclickAction"
                                                 v-on:saverecipe="onClickSaveRecipe"
                                                 v-on:undorecipe="onClickRemoveRecipe"
-                                                v-on:recipedetails="onClickRecipeDetails">
+                                                v-on:recipedetails="onClickRecipeDetails"
+                                                v-on:recipeactionlike="onclickActionLike"
+                                                v-on:recipeactiondislike="onclickActionDisLike">
                                             </recipe-card>
                                         </div>
                                         <!-- Card -->
@@ -121,6 +130,47 @@
             </div>
             <!----/ Recetas del usuario /---->
 
+            <!----/ Recetas likeadas /---->
+            <div class="w-100 d-flex justify-content-center mb-4">
+                <div class="w-95 bg-black rounded-4 bg-opacity-75 p-3">
+                    <div class="text-center p-2 mb-3">
+                        <div class="d-inline-block border-5 border-bottom border-top mb-2">
+                            <h2 class="text-white m-0 p-1">Recetas <span class="text-danger fw-bold">que te</span>
+                                gustan
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div class="p-2 bg-black rounded-4 bg-opacity-50">
+                        <div class="container">
+                            <div class="d-flex align-content-center justify-content-center">
+                                <div class="d-flex justify-content-center p-2">
+                                    <div class="w-100 row">
+                                        <!-- Card -->
+                                        <div v-for="item in user_liked_list" class="p-1 col-md-3 mb-2">
+                                            <liked-card 
+                                                :id="item.id"
+                                                :name="item.name"
+                                                :image="item.image" 
+                                                :level="item.level"
+                                                :likes="item.likes"
+                                                :liked="item.liked"
+                                                :category="item.category" 
+                                                v-on:recipedetails="onClickRecipeDetails"
+                                                v-on:recipeactionlike="onclickActionLike"
+                                                v-on:recipeactiondislike="onclickActionDisLike">
+                                            </liked-card>
+                                        </div>
+                                        <!-- Card -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!----/ Recetas likeadas /---->
+
         </section>
         <footer-page></footer-page>
     </section>
@@ -128,7 +178,7 @@
     <!--Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-        </script>
+    </script>
 
     <!--FontAwesome-->
     <script src="https://kit.fontawesome.com/48ce04dd4f.js" crossorigin="anonymous"></script>
@@ -145,6 +195,7 @@
     <!-- Components -->
     <script src="/dist/js/components/Nav.js"></script>
     <script src="/dist/js/components/Footer.js"></script>
+    <script src="/dist/js/components/LikedCard.js"></script>
     <script src="/dist/js/components/RecipeCard.js"></script>
     <script src="/dist/js/components/RecipeDetails.js"></script>
     <script src="/dist/js/components/ProfileBuntton.js"></script>

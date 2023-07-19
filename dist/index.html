@@ -25,7 +25,7 @@
             <!-- Barra de navegacion -->
             <section>
                 <nav>
-                    <nav-area ></nav-area>
+                    <nav-area></nav-area>
 
                     <div class="d-flex">
                         <access-button v-if="!isLogin">
@@ -101,13 +101,15 @@
                                                 :id="item.id"
                                                 :name="item.name"
                                                 :time="item.time" 
-                                                :image="item.image" 
+                                                :image="item.image"
                                                 :level="item.level"
-                                                :likes="item.likes" 
-                                                :state="item.isinlist"
+                                                :likes="item.likes"
+                                                :saved="item.saved"
+                                                :liked="item.liked"
                                                 :category="item.category" 
                                                 :description="item.description" 
-                                                v-on:recipeaction="onclickAction"
+                                                v-on:recipeactionlike="onclickActionLike"
+                                                v-on:recipeactiondislike="onclickActionDisLike"
                                                 v-on:saverecipe="onClickSaveRecipe"
                                                 v-on:undorecipe="onClickRemoveRecipe"
                                                 v-on:recipedetails="onClickRecipeDetails">
@@ -209,14 +211,16 @@
                                             <recipe-card 
                                                 :id="item.id"
                                                 :name="item.name"
-                                                :time="item.time" 
+                                                :time="item.time"
                                                 :level="item.level"
-                                                :likes="item.likes" 
-                                                :image="item.image" 
-                                                :state="item.isinlist"
-                                                :category="item.category" 
+                                                :likes="item.likes"
+                                                :image="item.image"
+                                                :saved="item.saved"
+                                                :liked="item.liked"
+                                                :category="item.category"
                                                 :description="item.description" 
-                                                v-on:recipeaction="onclickAction"
+                                                v-on:recipeactionlike="onclickActionLike"
+                                                v-on:recipeactiondislike="onclickActionDisLike"
                                                 v-on:saverecipe="onClickSaveRecipe"
                                                 v-on:undorecipe="onClickRemoveRecipe"
                                                 v-on:recipedetails="onClickRecipeDetails">
@@ -270,5 +274,4 @@
     <script src="js/swipper/swiper-bundle.js"></script>
     <script src="js/swipper/script.js"></script>
 </body>
-
 </html>

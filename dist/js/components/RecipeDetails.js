@@ -46,10 +46,6 @@ app.component('recipe-details', {
     /*html*/
         `
         <!-- Modal -->
-        
-        <!-- Fin modal -->
-
-        <!-- Modal -->
         <div class="modal modal-lg fade" 
             id="RecipeDetails" 
             tabindex="-1" 
@@ -103,6 +99,10 @@ app.component('recipe-details', {
                                           {{ ingredient.amount }} {{ ingredient.measurement_unit }} {{ ingredient.description }}
                                         </li> 
                                     </ul>
+                                </div>
+                            </div>
+                            <div class="d-flex m-2 p-2 bg-black rounded-4 bg-opacity-50">
+                                <div class="p-2 text-white">
                                     <h4 class="fw-bold">Steps to prepare:</h4>
                                     <p v-for="instruction in instructions" class="m-0">
                                         {{ instruction }}.
